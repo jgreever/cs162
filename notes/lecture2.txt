@@ -1,0 +1,81 @@
+## Thursday, January 9th, 2020
+
+1. C++ Syntax
+2. Getting started w/Unix
+3. Writing a sample program
+
+C++ syntax example
+------------------
+#inclulde <iostream>
+using namespace std;
+
+// My name
+// Purpose of program
+
+int main()
+{
+    return 0;
+}
+------------------
+
+Insertion operator: <<
+Extraction operator: >>
+Single variable, use single quote: i.e. 'x'
+Multiple variable, use double quotes: i.e. "This is stuff"
+
+1. Output:
+	cout << variable;
+	cout << "literall string";
+	cout << endl;
+
+2. Input:
+	cin >> variable;
+
+3. The extraction operator skips leading whitespace, reads in the appropriate information next in the input stream (also known aas input buffer)
+
+4. If the WRONG data type is in the input buffer no input will happen and the data will need to be removed from the input buffer
+
+
+Data Types
+----------
+
+1. Whole #'s; int, short, long, unsigned int
+
+2. Real #'s: float, double
+
+3. Characters: char
+
+4. Boolean: bool
+
+Variables
+---------
+
+1. MUST be defined before they can be used
+
+2. Local variable are garbage unless initialized
+
+3. Identifiers must start with a letter (a-z, A-Z) and be aany sequence of letters, digits, or underscores (_), no dollar signs ($)
+
+
+Examples
+--------
+
+int count;
+	  // you can create a comma separated list
+int i,j;
+
+
+char initial = 'k'; // two different
+
+char response('Y'); // ways to initialize!
+
+
+int Total_Length; // pick a 
+
+int total_length; // consistent
+
+int TotalLength; // naming convention
+
+
+float cost=0.0; // avoid unnecessary type conversions (float cost = 0 is bad, float cost = 0.0 is good)
+

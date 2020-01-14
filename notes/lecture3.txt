@@ -1,0 +1,25 @@
+Topics
+-arithmetic statements
+-if statements
+-logicals
+
+Arithmetic Operations
+1. Operators: + - * / (% mod operator) [+=, -+, /=. %= are compund arithmetic]
+2. Form: variable = mathmematic expressions; [= is the assignment operator]
+3. Exaamples: a=a+10; a+=10; a+=(b*10);
+4. ILLEGAL: a+10=b;
+5. Integer Division: a=b/c; gives the total, a=b%c; gives the remainder
+
+Conditionals (if)
+1. Form: if(conditional)
+2. Relational/Operators: < > <= >= == !=
+3. Logical Operators: && (and), || (or), ! (not)
+4. Examples:
+    if('y'==response)
+        cout << "yes!";
+    else if('Y'==response)
+        cout << "capitalized";
+---------------------------------------
+    if('y'==response || 'Y'==response)
+5. If statements should be [y == response, not response == y]
+

@@ -23,7 +23,7 @@ Preview: Loops
 }
 ----------------------
 Example of for loop:
-for(i=0;i<3;++i) //++i to add one, --i to decrese one
+for(i=0;i<3;++i) //if variable isn't set already, use int i=0, ++i to add one, --i to decrese one
 {
     //body
 }
@@ -40,4 +40,9 @@ while('n'==response)
 ----------------------
 Increment prefix = ++i, Postfix = i++
 Prefix adds 1. Postfix makes a copy of the value in temp, adds one to the variable, but returns the temp value.
+
+Preview: Arrays of characters!
+1. char name[5]; //0,1,2,3,4 -- the size must be specified and MUST be a constant or a literal
+We mut allow for ONE extra element to hold the '\0' which si the terminating nul character, indicating the end of the used part of the array versus the unused.
+This array can hold 4 characters for the name and 1 for the '\0'
 

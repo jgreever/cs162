@@ -1,0 +1,5 @@
+1. Loops
+2. Array intro
+3. Prelab for this weeks lab
+(next week: more on arrays and functions!!)
+

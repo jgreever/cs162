@@ -3,3 +3,41 @@
 3. Prelab for this weeks lab
 (next week: more on arrays and functions!!)
 
+Preview: Loops
+
+1. 3 loops in C++
+2. while, do while, for
+3. while(conditional)
+{
+    //body
+}
+----------------------
+4. do
+{
+    //body
+}while(conditional);
+----------------------
+5. for(initialize; test condition; increment)
+{
+    //body
+}
+----------------------
+Example of for loop:
+for(i=0;i<3;++i) //++i to add one, --i to decrese one
+{
+    //body
+}
+----------------------
+Example of a while loop:
+while('n'==response)
+{
+    cout<<"Enter a number ";
+    cin>>>num;
+    cout<<"You entered: "<<num<<endl
+        <<"is this correct?";
+    cin>>response;cin.ignore();
+}
+----------------------
+Increment prefix = ++i, Postfix = i++
+Prefix adds 1. Postfix makes a copy of the value in temp, adds one to the variable, but returns the temp value.
+

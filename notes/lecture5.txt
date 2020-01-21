@@ -1,0 +1,36 @@
+Lecture 5, Reading in Arrays of Characters
+
+Assume: char name[21];
+
+1. cin>>name;
+skips elading whitespace and reaads until whitespace is encountered but not read
+**issues** what if the user types too many characters? more than one word?
+
+'\0' = Zero of the ASCII table, terminating null
+'\n' = new line
+'\b' = backspace
+'\t' = tab
+
+Fixes:
+1. Read 1 word without risk of a seg fault:
+cin.width(21);
+cin>>name;
+
+2. Read in multiple words:
+cin.get(name,21,'\n');
+**issues** does not skip whitespace
+Fixes:
+1. remove newline after every single input operation
+
+When using arrays, always follow cin input with cin.ignore()
+Examples:
+cin>>response;
+cin.ignore(); //or, cin.ignore(100,'\n');
+//sometimes later
+cin.get(name,21,'\n');
+cin.ignore(100,'\n'); //or, while(cin.get() != '\n');
+
+To compare, copy, count the number of characters used in an array use the
+cstring library // #include <cstring>
+strcmp(), strcpy(), strlen()
+

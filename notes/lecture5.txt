@@ -33,4 +33,8 @@ cin.ignore(100,'\n'); //or, while(cin.get() != '\n');
 To compare, copy, count the number of characters used in an array use the
 cstring library // #include <cstring>
 strcmp(), strcpy(), strlen()
+Examples:
+if(strcmp(name,"Justin Greever") == 0)
+strcpy(name,"Justin Greever");
+int length = strlen(name);
 

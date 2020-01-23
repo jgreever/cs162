@@ -1,0 +1,116 @@
+Functions (pass by value and ref)
+
+1. Prototypes, Functions Calls, Function Definitions
+  1. Function Prototypes:
+    
+  return_type function_name(argument_list);
+    
+    *write a prototype for a function that returns
+    *nothing and takes an integer as an argument:
+  
+    void calculate(int arg);
+
+    *returns an int and has no arguments:
+    
+    int calculate();
+
+  Prototypes are not requred if functions are
+  defined before they are called!
+
+  2. Function Call
+    Do NOT put the data types in the function calls!
+    
+    int value = 100;
+    calculate(value); /* the contents is copied with 'pass by value' */
+    
+    value = calculate(); /* 2nd prototype */
+
+  3. What is this?
+    
+    int calculate(); /* This is a prototype */
+
+  4. Function Definition - Implementation
+    * functions tht have "non-void" return types then the functions
+      NEED to return a value
+    * the arguments and return types must match the prototypes
+
+    int calculate()
+    {
+      int num1, num2;
+      cout << "please enter 2 numbers: ";
+      cin >> num1 >> num2;
+      return num1 + num2;
+    }
+
+2. Passing Arguments:
+  1. Pass by value
+    * a copy of the argument is made
+    * any changes made in the function to the argument
+      will not be detected outside of the function
+    
+    int main()
+    {
+      int num = 100;
+      func(num);
+      func(100);
+    }
+
+    void func(int value)
+    {
+      int junk;
+      cout << value << endl;
+      value = 10;
+      /* no affect on main's number */
+    }
+
+  2. Pass by reference
+    * create and ALIAS
+    * the "address of" the calling routine's value is
+      implicitly sent to the function
+    * allows us to "get information" from a function
+      without the overhead of returning it
+
+    int main()
+    {
+      int num = 100;
+      func(num);
+    }
+
+    void func(int & arg)
+    {
+      cout << arg << endl;
+      arg = 10;
+    }
+
+  3. How arrays work when we pass
+    * technically when an array is an argument,
+      the starting address to the first element is 
+      actually passed by value
+     ** [][][][][][]
+    * this seems like pass by reference because the
+      contents of the array can be altered
+    
+    int main()
+    {
+      char name[21];
+      cout << "Enter a name";
+      cin.get(name,21);
+      cin.ignore(100, '\n');
+
+      func(name)
+        cout << name;
+    }
+
+    void func(char array[])
+    {
+      cout << array << endl;
+
+      /* what about: */
+      cout << "re-enter: ";
+      cin.get(array,21);
+      cin.ignore(100, '\n');
+      cout << array;
+    }
+
+3. Programming Example
+

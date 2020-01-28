@@ -1,0 +1,3 @@
+Practicing making functions
+1 week from today (on 2/4) will be the midterm
+Prof. Demo study time (everything up to arrays, no functions)

@@ -1,0 +1,60 @@
+1) Topic 2 - Structures
+   -what are they
+   -how to create them
+   -passing structures as an argument
+   -arraays of structures
+
+  2) Experience structures in a program
+
+  3) Announcements
+
+Structures
+----------
+1. Allows us to group data together!
+2. Remember an array requires all elements to be the same data type
+
+So what happens when we want to represent an inventory of information?
+  - product name
+  - barcode
+  - description
+  - price
+  - distributor
+
+Think about how hard it would be to represent this with just arrays
+
+1) Start with the keyword 'struct'
+2) Follow this with a "tag" name
+/* This goes in the global area above and outside of main */
+  struct product
+  {
+    char name[41];
+    char description[131];
+    float price;
+    char distributor[113];
+  }; /* This semicolon is required */
+
+3. How do we use them?
+  int main()
+{
+  product item;
+  /* data_type variable */
+  
+  int i;
+}
+
+4. Accessing Members
+  product item;
+  cin.get(item.name,41,'\n');
+
+  object.member 
+  variable or object of type struct, . = direct member access operator, member/item name in array 
+
+5. Passing structures as arguments
+  1. Prototype:
+    void inputinventory(product & an_item);
+    /* NEVER pass a struct by value */
+  2. Function call:
+    product item;
+    input_inventory(item);
+    /* item = an object or variaable of type struct product */
+

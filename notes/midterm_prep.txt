@@ -1,0 +1,41 @@
+Specifics
+
+1. closed book, closed notes
+2. bring picture ID
+3. bring pencil/eraser
+4. Karla will supply paper
+
+Topics
+
+1. data types: int, float, bool, char, arrays
+2. I/O: cin >>, cin.get, cin.ignore, cout <<
+3. logicals: && || != ==
+4. conditions: if statements
+5. loops: do while, while, for loop
+6. functions: prototypes, pass by value, pass by reference, passing an array
+
+Labs 1-4: good place to review for midterm
+
+Libraries
+
+cctype: toupper, tolower, isupper, islower
+cstring: strlen, strcpy, strcmp
+
+How to Prepare
+
+1. Read malik textbook
+  -logicals
+  -3 loops
+  -pass value/pass reference
+  -arrays
+2. malik - practice problems
+  -back of the chapters
+3. lab manual
+  -prelab exercises
+  -self check quizzes
+  -re-read background!!
+  -Labs 1-4
+4. Practice coding for midterm proficency demo
+
+5. Practice midterm test on D2L
+

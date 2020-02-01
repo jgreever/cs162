@@ -23,6 +23,7 @@ using namespace std;
 
 /* Global constants here */
 
+/* Prototypes Here */
 
 /* Start main() */
 int main()

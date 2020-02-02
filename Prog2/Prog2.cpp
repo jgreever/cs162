@@ -31,9 +31,7 @@ void read_input(char userInput[]); /* prototype for reading input from the user 
 /* Start main() */
 int main()
 {
-  char userInput[PSIZE];
-
-  /* Create any variables needed */
+  /* local variables go here */
   char userInput[SSIZE];
 
   /* the main code goes here */

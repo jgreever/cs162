@@ -27,6 +27,7 @@ const int PSIZE = 301; /* Paragraph size MAX 300 */
 
 /* Prototypes Here */
 void read_input(char userInput[]); /* prototype for reading input from the user */
+void form_paragraph(char userInput[]); /* prototype for paragraph output (tabs, caps, .!?) */
 
 /* Start main() */
 int main()
@@ -46,7 +47,13 @@ void read_input(char userInput[]) /* this function will grab input to store for 
 {
   cout << "Enter your text below. Press enter to start a new paragraph, " << endl;
   cout << "and put a # on a blank line and press enter to quit." << endl;
-  cin.get(userInput,130,'\n');
+  cin.get(userInput,301,'\n');
   cin.ignore(100,'\n');
   cout << userInput << endl;
+}
+
+void form_paragraph(char userInput[]) /* this function will beautify the output formatting */
+{
+  userInput[0] = toupper(userInput[0]);
+  cout << userInput;
 }

@@ -86,3 +86,4 @@ void form_paragraph(char userInput[]) /* this function will beautify the output 
   }
   //cout << "You typed " << sum << " characters and " << spaces << " words." << endl; /* <-need to fix this code */
 }
+

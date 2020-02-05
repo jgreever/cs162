@@ -22,8 +22,7 @@
 using namespace std;
 
 /* Globals here (CONST only!) */
-const int SSIZE = 131; /* Sentence size MAX 130 */
-const int PSIZE = 301; /* Paragraph size MAX 300 */
+const int ISIZE = 901; /* Output paragraph max */
 
 /* Prototypes Here */
 void read_input(char userInput[]); /* prototype for reading input from the user */
@@ -33,10 +32,11 @@ void form_paragraph(char userInput[]); /* prototype for paragraph output (tabs, 
 int main()
 {
   /* local variables go here */
-  char userInput[SSIZE];
+  char userInput[ISIZE];
 
   /* the main code goes here */
   read_input(userInput);
+  form_paragraph(userInput);
 
   /* Exit the program gracefully */
   return 0;
@@ -47,13 +47,15 @@ void read_input(char userInput[]) /* this function will grab input to store for 
 {
   cout << "Enter your text below. Press enter to start a new paragraph, " << endl;
   cout << "and put a # on a blank line and press enter to quit." << endl;
-  cin.get(userInput,301,'\n');
-  cin.ignore(100,'\n');
+  cin.get(userInput,900,'#');
+  cin.ignore(100,'#');
   cout << userInput << endl;
 }
 
 void form_paragraph(char userInput[]) /* this function will beautify the output formatting */
 {
+  int inputLength = strlen(userInput);
   userInput[0] = toupper(userInput[0]);
-  cout << userInput;
+  cout << inputLength << endl; 
+  cout << "\t" << userInput << endl;
 }

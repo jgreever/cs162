@@ -1,4 +1,4 @@
-/* 
+/*
  * Justin Greever
  * 1/29/2020
  * CS162
@@ -22,7 +22,7 @@
 using namespace std;
 
 /* Globals here (CONST only!) */
-const int PSIZE = 301; /* Paragraph size MAX 300 */
+const int PSIZE = 301; /* Paragraph size MAX 300 + 1 for '\0' */
 
 /* Prototypes Here */
 void read_input(char userInput[]); /* prototype for reading input from the user */
@@ -34,7 +34,7 @@ int main()
 {
   /* local variables go here */
   char userInput[PSIZE];
-  
+
   /* the main code goes here */
   read_input(userInput);
   form_paragraph(userInput);
@@ -57,29 +57,29 @@ void read_input(char userInput[]) /* this function will grab input to store for 
 
 void form_paragraph(char userInput[]) /* this function will beautify the output formatting */
 {
-  int sum = 0;
-  int spaces = 0;
-  int len = strlen(userInput);
+  //int sum = 0; /* int sum and int spaces will be used to count letters/words */
+  //int spaces = 0;
+  int len = strlen(userInput); /* let's get that array's size! */
 
   cout << "\t";
 
   for(int i = 0; i < len; i++)
   {
-    userInput[0] = toupper(userInput[0]); 
+    userInput[0] = toupper(userInput[0]);
     cout << userInput[i];
     if(userInput[i] == '\n')
     {
-      cout << "\t";
-      userInput[i] = toupper(userInput[i]);
+      cout << "\t"; /* add tab after any \n (enter press) */
+      userInput[i] = toupper(userInput[i]); /* uppercase the first letter user has typed */
     }
-    if(userInput[i] == '.' || userInput[i] == '!' || userInput[i] == '?')
+    if(userInput[i] == '.' || userInput[i] == '!' || userInput[i] == '?') /* check for .,!,? and add spaces */
     {
-      if(userInput[i + 1] == ' ')
+      if(userInput[i + 1] == ' ') /* add space after punctuation */
       {
         cout << " ";
         userInput[i + 2] = toupper(userInput[i + 2]);
       }
-      else if(isalpha(userInput[i + 1]))
+      else if(isalpha(userInput[i + 1])) /* ensure first letter of each word and paragraph are uppercase */
       {
         cout << "  ";
         userInput[i + 1] = toupper(userInput[i + 1]);
@@ -93,7 +93,7 @@ void char_count(char userInput[])
 {
   int characters = 0;
   int words = 0;
-  
+
   for(i = 0; userInput[i] != '\0'; ++i)
   {
     if(userInput[i] == ' ')

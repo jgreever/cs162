@@ -41,6 +41,7 @@ int main()
 
   movie a_movie; /* testing one movie */
   read_movie(a_movie);
+  read_review();
   save_to_file(a_movie);
   cout << "Now sci fi: ";
   read_movie(sci_fi[0]); /* testing again with one sci fi movie */
@@ -95,16 +96,16 @@ void save_to_file(movie & to_save)
 }
 
 /* This function will prompt and read in a movie title, description, and review (0-10) */
-void read_movie(char title[], char info[], int & review)
+void read_movie(char title[], char info[])
 {
   /* prompt the user and read in the info */
   cout << "Please enter a movie title: ";
-  cin.get(to_read.title, TITLE, '\n');
+  cin.get(title, TITLE, '\n');
   cin.ignore(100, '\n');
   cout << "Please enter the description: ";
-  cin.get(to_read.info, INFO, '\n');
+  cin.get(info, INFO, '\n');
   cin.ignore(100, '\n');
-  review = read_review();
+//  review = read_review();
 }
 
 /* Prompt and read in review */

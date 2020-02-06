@@ -32,13 +32,13 @@ int main()
 {
   /* variables */
   movie sci_fi[MOVIES];
-  movie drama[MOVIES];
+  //  movie drama[MOVIES];
   movie list[MOVIES];
   int num = load(list);
 
   for(int i = 0; i < num; ++i)
     cout << list[i].title << endl;
-  
+
   movie a_movie; /* testing one movie */
   read_movie(a_movie);
   save_to_file(a_movie);
@@ -74,7 +74,9 @@ int load(movie array[])
     }
     file_in.close();
   }
+  return i;
 }
+
 /* Save a movie to an external file */
 void save_to_file(movie & to_save)
 {
@@ -87,7 +89,7 @@ void save_to_file(movie & to_save)
      * Let's plan: title|information|review\n
      */
     file_out << to_save.title << '|' << to_save.info << '|'
-             << to_save.review << endl;
+      << to_save.review << endl;
   }
   file_out.close();
 }
@@ -105,20 +107,20 @@ void read_movie(char title[], char info[], int & review)
   review = read_review();
 }
 
-  /* Prompt and read in review */
-  int read_review()
+/* Prompt and read in review */
+int read_review()
+{
+  int review = 0;
+  do
   {
-    int review = 0;
-    do
-    {
-      cout << "Enter a review from 0-10, 0 is poor, 10 is amazing: ";
-      cin >> review;
-      cin.ignore(100, '\n');
+    cout << "Enter a review from 0-10, 0 is poor, 10 is amazing: ";
+    cin >> review;
+    cin.ignore(100, '\n');
 
-      if(review < 0 || review > 10) /* not valid review numbers */
-        cout << "Please try again, vaild reviews are 0-10!" << endl;
-    } while (review < 0 || review > 10);
+    if(review < 0 || review > 10) /* not valid review numbers */
+      cout << "Please try again, vaild reviews are 0-10!" << endl;
+  } while (review < 0 || review > 10);
 
-    return review;
-  }
+  return review;
+}
 

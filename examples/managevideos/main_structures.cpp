@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <cstring>
+#include <fstream>
 using namespace std;
 
 /* Justin Greever
@@ -21,6 +22,8 @@ struct movie
 };
 
 /* Prototypes */
+int load(movie array[]);
+void save_to_file(movie & my_new_movie);
 void read_movie(movie & movie_to_read); /* & means that is is not a pass-by-value */
 void display_movie(movie & movie_to_display);
 int read_review();
@@ -31,15 +34,62 @@ int main()
   movie sci_fi[MOVIES];
   movie drama[MOVIES];
   movie list[MOVIES];
+  int num = load(list);
 
-  movie a_movie; /* testing one movei */
+  for(int i = 0; i < num; ++i)
+    cout << list[i].title << endl;
+  
+  movie a_movie; /* testing one movie */
   read_movie(a_movie);
+  save_to_file(a_movie);
   cout << "Now sci fi: ";
   read_movie(sci_fi[0]); /* testing again with one sci fi movie */
-
+  save_to_file(sci_fi[0]);
   cout << "We read in to test our program: " << a_movie.title << endl << "For sci fi we got: " << sci_fi[0].title << endl;
 
   return 0;
+}
+
+/* Read movies from an external file */
+int load(movie array[])
+{
+  ifstream file_in;
+  int i = 0;
+
+  file_in.open("movie.txt");
+  if(file_in) /* Connected!! */
+  {
+    file_in.get(array[i].title, TITLE, '|');
+    file_in.ignore(100, '|');
+    while(!file_in.eof() && i < MOVIES)
+    {
+      file_in.get(array[i].info, INFO, '|');
+      file_in.ignore(100, '|');
+      file_in >> array[i].review;
+      file_in.ignore(100, '\n');
+      ++i;
+
+      file_in.get(array[i].title, TITLE, '|');
+      file_in.ignore(100, '|');
+    }
+    file_in.close();
+  }
+}
+/* Save a movie to an external file */
+void save_to_file(movie & to_save)
+{
+  ofstream file_out;
+  file_out.open("movie.txt", ios::app);
+  if(file_out) /* I'm connected!!! */
+  {
+    /* Now I can write out to the file
+     * Remember I hve to consider how to read it back
+     * Let's plan: title|information|review\n
+     */
+    file_out << to_save.title << '|' << to_save.info << '|'
+             << to_save.review << endl;
+  }
+  file_out.close();
 }
 
 /* This function will prompt and read in a movie title, description, and review (0-10) */

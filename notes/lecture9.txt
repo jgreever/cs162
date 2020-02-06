@@ -59,3 +59,22 @@ if(!file_ini) cerr << "OOPS! No File!";
   ** there needs to be a way to read information back from the file **
   sara smith231985    vs    Sarah Smith \n 23\n 1985\n
 
+file_in.get(namearray, sie, '\n');
+file_in.ignore(100, '\n');
+
+file_in >> age;
+file_in.ignore();
+
+file_in >> year;
+file_in.ignore();
+
+*** When we try to read from a file and there is nothing there, END OF FILE
+    (a "state" variable in the fstream library) gets set. ***
+1. We MUST attempt to READ from the file to find out if there is anything in the file to read
+2. file_in.eof() /* function call */
+  -returns TRUE if the previous read/input operation failed
+  -returns FALSE if the previous read/input was successful
+  -therefore, BEFORE you check end of file, make sure to attempt to read FIRST. "prime the pump"
+
+To close a file:
+file_variable.close();

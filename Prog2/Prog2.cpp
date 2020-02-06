@@ -68,7 +68,8 @@ void form_paragraph(char userInput[]) /* this function will beautify the output 
     if(userInput[i] == '\n')
     {
       cout << "\t"; /* add tab after any \n (enter press) */
-      userInput[i] = toupper(userInput[i]); /* uppercase the first letter user has typed */
+      userInput[i + 1] = toupper(userInput[i + 1]); /* uppercase the first letter user has typed */
+
     }
     if(userInput[i] == '.' || userInput[i] == '!' || userInput[i] == '?') /* check for .,!,? and add spaces */
     {

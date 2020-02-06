@@ -27,7 +27,6 @@ const int PSIZE = 301; /* Paragraph size MAX 300 + 1 for '\0' */
 /* Prototypes Here */
 void read_input(char userInput[]); /* prototype for reading input from the user */
 void form_paragraph(char userInput[]); /* prototype for paragraph output (tabs, caps, .!?) */
-void char_count(char userInput[]); /* prototype to cound chars and words */
 
 /* Start main() */
 int main()
@@ -38,7 +37,6 @@ int main()
   /* the main code goes here */
   read_input(userInput);
   form_paragraph(userInput);
-  char_count(userInput);
 
   /* Exit the program gracefully */
   return 0;
@@ -57,7 +55,7 @@ void read_input(char userInput[]) /* this function will grab input to store for 
 
 void form_paragraph(char userInput[]) /* this function will beautify the output formatting */
 {
-  //int sum = 0; /* int sum and int spaces will be used to count letters/words */
+  int sum = 0; /* int sum and int spaces will be used to count letters/words */
   //int spaces = 0;
   int len = strlen(userInput); /* let's get that array's size! */
 
@@ -86,20 +84,7 @@ void form_paragraph(char userInput[]) /* this function will beautify the output 
       }
     }
   }
-  //cout << "You typed " << sum << " characters and " << spaces << " words." << endl; /* <-need to fix this code */
+  /* having a difficult time getting it to sum words/characters without breaking the loop */
+  //cout << "You typed " << sum << " words." << endl; /* <-need to fix this code */
 }
 
-void char_count(char userInput[])
-{
-  int characters = 0;
-  int words = 0;
-
-  for(i = 0; userInput[i] != '\0'; ++i)
-  {
-    if(userInput[i] == ' ')
-    {
-      words += words;
-      cout << "There are " << words << " words." << endl;
-    }
-  }
-}

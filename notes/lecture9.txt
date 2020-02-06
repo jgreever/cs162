@@ -4,4 +4,58 @@ External Data files
 
 Writing programs with structs and external data files
 
+output = cout << info;
+input = cin >> data;
+
+output = file_out << info;
+input = file_in >> data;
+
+Applying this all to files:
+
+#include <fstream> /* allows us to work with files */
+
+[inside of a function]
+ifstream file_in; /* for input */
+ofstream file_out; */ for output */
+
+Example Code:
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+/* inside of a function */
+ofstream file_out;
+ifstream file_in;
+
+file_out.open("filename.extensoin");
+
+file_out << name << endl;
+
+Example 2:
+file_out.open("inv.dat");
+  vs
+char filename[31];
+cin >> filename;
+cin.ignore(100,'\n');
+file_out.open(filename); /* array of characters */
+
+
+IMPORTANT
+---------
+
+1. when you open a file for output, THE CONTENTS OF THE FILE IS LOST!
+2. The code from the previous pge will be written at the BEGINNING of the file.
+3. IF you want to preserve the information that was in the file, then open the file for APPEND
+  file_out.open(filename, iso::app);
+4. Now new information is written after the last item in the file. MAKE SURE to write a NEWLINE ('\n')
+   or other delimiter so that we can distinguish between the data.
+
+ifstream file_in;
+file_in.open(filename);
+if(!file_ini) cerr << "OOPS! No File!";
+
+1. Always begins reading at the beginning of the file.
+2. Make sure there are DELIMITERS in the fiel between fields
+  ** there needs to be a way to read information back from the file **
+  sara smith231985    vs    Sarah Smith \n 23\n 1985\n
 

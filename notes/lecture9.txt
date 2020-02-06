@@ -1,0 +1,7 @@
+External Data files
+-output to a file
+-input from a file
+
+Writing programs with structs and external data files
+
+

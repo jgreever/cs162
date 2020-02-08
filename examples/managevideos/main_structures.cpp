@@ -32,21 +32,21 @@ int main()
 {
   /* variables */
   movie sci_fi[MOVIES];
-  //  movie drama[MOVIES];
+//  movie drama[MOVIES];
   movie list[MOVIES];
   int num = load(list);
 
   for(int i = 0; i < num; ++i)
     cout << list[i].title << endl;
 
-  movie a_movie; /* testing one movie */
-  read_movie(a_movie);
+  movie a_movie[MOVIES]; /* testing one movie */
+  read_movie(a_movie[0]);
   read_review();
-  save_to_file(a_movie);
+  save_to_file(a_movie[0]);
   cout << "Now sci fi: ";
   read_movie(sci_fi[0]); /* testing again with one sci fi movie */
   save_to_file(sci_fi[0]);
-  cout << "We read in to test our program: " << a_movie.title << endl << "For sci fi we got: " << sci_fi[0].title << endl;
+  cout << "We read in to test our program: " << a_movie[0].title << endl << "For sci fi we got: " << sci_fi[0].title << endl;
 
   return 0;
 }
@@ -96,7 +96,7 @@ void save_to_file(movie & to_save)
 }
 
 /* This function will prompt and read in a movie title, description, and review (0-10) */
-void read_movie(char title[], char info[])
+void read_movie(char title[], char info[], int & review)
 {
   /* prompt the user and read in the info */
   cout << "Please enter a movie title: ";
@@ -105,7 +105,7 @@ void read_movie(char title[], char info[])
   cout << "Please enter the description: ";
   cin.get(info, INFO, '\n');
   cin.ignore(100, '\n');
-//  review = read_review();
+  review = read_review();
 }
 
 /* Prompt and read in review */

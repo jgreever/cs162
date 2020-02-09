@@ -32,13 +32,13 @@ struct ipdb
 };
 
 /* Prototypes */
-void getInfo(ipdb infoToGet);
+void getInfo(char a, int b, char c);
 
 /* main() */
 int main()
 {
   ipdb getMacInfo[MACADDR];
-  getInfo(getMacInfo[0]);
+  getInfo(getMacInfo[0], getIPAddr, getHostname[0]);
   return 0;
 }
 /* Functions */

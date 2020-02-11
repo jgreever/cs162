@@ -1,56 +1,7 @@
-#include <iostream>
-#include <cctype>
-#include <cstring>
-#include <fstream>
-using namespace std;
-
+#include "movies.h"
 /* Justin Greever
  * This program will manage the movie collection.
  */
-
-/* Global Constants */
-const int TITLE = 21; /* the size of a title */
-const int INFO = 131; /* the size of the informational description */
-const int MOVIES = 5; /* max number of movies stored */
-
-/* Structures */
-struct movie
-{
-  char title[TITLE];
-  char info[INFO]; /* description */
-  int review;
-};
-
-/* Prototypes */
-int load(movie array[]);
-void save_to_file(movie & my_new_movie);
-void read_movie(movie & movie_to_read); /* & means that is is not a pass-by-value */
-void display_movie(movie & movie_to_display);
-int read_review();
-
-int main()
-{
-  /* variables */
-  movie sci_fi[MOVIES];
-  movie drama[MOVIES];
-  movie list[MOVIES];
-
-  int num = load(list);
-
-  for(int i = 0; i < num; ++i)
-    cout << list[i].title << endl;
-
-  movie a_movie; //testing one movie
-  read_movie(a_movie);
-  read_review();
-  save_to_file(a_movie);
-  cout << "Now sci fi: ";
-  read_movie(sci_fi[0]); // testing again with one sci fi movie
-  save_to_file(sci_fi[0]);
-  cout << "We read in to test our program: " << a_movie.title << endl << "For sci fi we got: " << sci_fi[0].title << endl;
-
-  return 0;
-}
 
 /* Read movies from an external file */
 int load(movie array[])

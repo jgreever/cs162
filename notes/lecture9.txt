@@ -27,7 +27,7 @@ using namespace std;
 ofstream file_out;
 ifstream file_in;
 
-file_out.open("filename.extensoin");
+file_out.open("filename.extension");
 
 file_out << name << endl;
 

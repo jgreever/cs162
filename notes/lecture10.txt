@@ -1,0 +1,96 @@
+Data Abstraction w/Classes (Topic #3)
+
+Programming Paradigms
+- procedural abstraction
+- modular abstraction
+- data abstraction
+- object oriented programming
+
+1. Procedural Abstraction
+- what we have been doing!
+- This where you build a "fence" around progrma segments, preventing
+  some parts of the program from "seeing" how tasks aare being accomplished
+- any use of globals causes *side effects* that may not be predictable, reducing
+  the viability of procedural abstraction
+
+Unit test functions one at a time before adding the next one.
+
+Modular Abstraction
+- with modular abstraction, we build a "screen" surrounding the internal structure
+  of our programa prohibiting programmers from accessing the daat except through
+  specified functions
+- many times data structures (e.g., structures) common to a module are placed in a
+  header files along with prototypes (allow externl references)
+- the corresponding functions that maniipulate the data are then placed in an
+  *implementation* file. (*.cpp)
+- modules (files) can be compiled separtely, allowing users access only to the
+  object (*.o) files (*.cpp, *.h, *.o)
+- we progress one small step toward OOP by thinking about the actions that need
+  to take place on data
+
+Header files (*.h files)
+- Used for declarations
+1. #include(s)
+2. Constant(s)
+3. Struct(s)
+4. Prototype(s)
+5. Clss Interface(s)
+- Do NOT implement the "body" of a function in a *.h file
+- Do NOT #include any *.cpp file
+
+Implementation files (*.cpp files)
+- Used for function definitions
+1. #include "header_file.h"
+  - goes to your current working directory, unless aa path is specified
+2. Function implementations
+  - the body of a function
+3. There needs to be a main function in one of the *.cpp files
+  - but, there can be only one main!!
+
+To compile (on linux)
+- g++ main.cpp myfile.cpp ...
+- g++ *.cpp
+- g++ *.cpp *.o
+NEVER, EVER, COMPILE A *.h FILE!!!
+
+What is a class?
+- Remember, we used structure to group different types of dta together
+  under  common name.
+- With a class, we can go the next step and actually define a new data type 
+- In reality, structures and classes are 100% the same except for default conditions
+  - everything you cna do with a class, you can do with a structure!
+
+"class" Terminology
+- Class
+  - think data type
+- Object
+  - instance of  class, e.g., variable
+- Members
+  - like structures, the daat and functions declared in a class
+    called "data members" and "member functions"
+
+*inside *.h file*
+class data_type_name
+{
+  pubilc: 
+      // place member function
+  private:
+      // place data members here
+}; <-- Notice the ';
+
+----
+class movies
+{
+  public: 
+    movie();
+    int read();
+    int add(char name[], char desc[], int rating);
+    int display();
+    bool find(char match[]);
+
+  private: 
+    char name[41];
+    char description[131];
+    int rating;
+};
+

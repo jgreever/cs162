@@ -34,7 +34,7 @@ int load(movie array[])
 void save_to_file(movie & to_save)
 {
   ofstream file_out;
-  file_out.open("movie.txt", ios::app);
+  file_out.open("movies.txt", ios::app);
   if(file_out) /* I'm connected!!! */
   {
     /* Now I can write out to the file

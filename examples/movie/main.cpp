@@ -1,28 +1,32 @@
-#include "movies.h"
+#include "movie_list.h"
 /* Justin Greever
  * This program will manage the movie collection.
  */
 
 int main()
 {
-  /* variables */
-  movie sci_fi[MOVIES];
-  movie drama[MOVIES];
-  movie list[MOVIES];
+/*  movie a_movie;
+  cout << "Does anything display before I read in? ";
+  a_movie.display();
 
-  int num = load(list);
+  cout << "Nothing should have appeared. Let's red in  movie: " << endl;
+  a_movie.read();
+  a_movie.display();
 
-  for(int i = 0; i < num; ++i)
-    cout << list[i].title << endl;
+  char test_title[TITLE];
+  cout << "Enter in a test title: ";
+  cin.get(test_title, TITLE, '\n');
+  cin.ignore(100, '\n');
 
-  movie a_movie; //testing one movie
-  read_movie(a_movie);
-  read_review();
-  save_to_file(a_movie);
-  cout << "Now sci fi: ";
-  read_movie(sci_fi[0]); // testing again with one sci fi movie
-  save_to_file(sci_fi[0]);
-  cout << "We read in to test our program: " << a_movie.title << endl << "For sci fi we got: " << sci_fi[0].title << endl;
+  if(a_movie.compare_title(test_title))
+    cout << "YESSS, it is the SAME!!! " << endl;
+  else
+    cout << "NOPE, they are not the same. " << endl;
+*/
 
+  /* test out the movie ilst class */
+  movie_list scifi;
+  scifi.read_movies();
+  scifi.display_all();
   return 0;
 }

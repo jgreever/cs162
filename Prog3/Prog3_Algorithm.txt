@@ -4,6 +4,7 @@ CS162
 Program 3
 
 This program will keep track of various fun things to do, why I like them, and other recommendations.
+/* set a class to read one activity at a time, and another to handle all the movies at once */
 
 /* Functions */
 -- Start Read Function

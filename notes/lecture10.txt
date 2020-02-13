@@ -69,6 +69,7 @@ What is a class?
   - like structures, the daat and functions declared in a class
     called "data members" and "member functions"
 
+----
 *inside *.h file*
 class data_type_name
 {
@@ -93,4 +94,8 @@ class movies
     char description[131];
     int rating;
 };
+----
+
+Sort *.cpp files for functions by what they do (read things, write things, display things)
+local variables in functions do not stay after the function is done
 

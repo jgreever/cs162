@@ -1,0 +1,33 @@
+1. #includes
+   structures
+   class interface
+   prototypes
+   constants
+
+2. public;
+   private;
+   cons. prototypes
+   funct. prototypes
+
+3. What is unique about the constructor?
+   same name as class
+   no return types!!
+
+4. How do the member functions share info w/o using globals?
+   inside the scope of the class with the classname and ::
+
+5. Why do you think we need the scope...
+   to plaace us inside the class
+
+6. Let's say we wanted to create a class to act as a counter.
+   class counter
+   {
+     public:
+       counter();
+       int increment();
+       int decrement();
+       void display();
+       
+     private:
+       int count;
+   }

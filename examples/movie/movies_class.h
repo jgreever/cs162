@@ -11,7 +11,7 @@ using namespace std;
 /* Global Constants */
 const int TITLE = 21; /* the size of a title */
 const int INFO = 131; /* the size of the informational description */
-const int MOVIES = 5; /* max number of movies stored */
+const int MOVIES = 10; /* max number of movies stored */
 
 /* Classes */
 class movie

@@ -1,0 +1,21 @@
+Justin Greever
+CS162
+2/13/2020
+Program 3
+
+This program will keep track of various fun things to do, why I like them, and other recommendations.
+
+/* Functions */
+-- Start Read Function
+-- End Read Function
+
+-- Start Write Function
+-- End Write Function
+
+-- Start Display Function
+-- End Display Function
+
+
+/* Main */
+-- Start Main
+-- End Main

@@ -6,6 +6,29 @@ Program 3
 This program will keep track of various fun things to do, why I like them, and other recommendations.
 /* set a class to read one activity at a time, and another to handle all the movies at once */
 
+/* DELETE THIS BEFORE TURNING IN
+Your  job  for  program  #3  is build  a  program  to  help keep  track  of your favorite activities.
+You will want to keep track of the following information:
+  a.The name of the activity (e.g., Snowboarding)
+  b.Where it is located (e.g., Mt Hood)
+  c.Time of year (e.g., Winter)
+  d.Description (no more than 130 characters)
+  e.Your thoughts on why it is your favorite and what you would recommend (no more than 200characters)
+  f.Supplies needed or special attireg.For someactivities, they are only available for certain dates (such as ZooLights)
+ */ DELETE ABOVE BEFORE TURNING IN
+
+/* Classes and Structures */
+There will be a few classes created. Activities is to be used to define the type of activities 
+being entered. One will read in user input/data, one will display input/data, and the third
+will be used to write the input/data to a file, something like "activities.txt".
+-- Start Classes
+     Create a new class called "activities"
+     public will have the folllowing: read_activity, write_activity, and display_activity 
+-- End Classes 
+
+-- Start Structures
+-- End Structures
+
 /* Functions */
 -- Start Read Function
 -- End Read Function
@@ -16,7 +39,13 @@ This program will keep track of various fun things to do, why I like them, and o
 -- Start Display Function
 -- End Display Function
 
+/* Data/External Files */
+-- Start Data/External Files
+     Create a blank text file called "activities.txt", we can allow the program to create this
+     file in the event we don't already have one.
+-- End Data/Externall Files
 
 /* Main */
 -- Start Main
 -- End Main
+

@@ -23,12 +23,44 @@
 using namespace std;
 
 /* Classes */
+class act_data
+{
+  public:
+    act_data(); /* constructor */
+    int fLoad();
+    void fSave();
+    void to_display();
+    void to_read();
+
+  private:
+    char ptimeOfYear[11];
+    char pdescription[131]
+    char pthoughts[131];
+    char psupplies[131];
+    char pdateRange[21];
+    char pmyArray[100];
+    char pactivity[26];
+    char plocation[56];
+
+};
+
+act_data::act_data() /* constructor - initialize data members */
+{
+  ptimeOfYear[0] = '\0';
+  pdescription[0] = '\0';
+  pthoughts[0] = '\0';
+  psupplies[0] = '\0';
+  pdateRange[0] = '\0';
+  pmyArray[0] = '\0';
+  pactivity[0] = '\0';
+  plocation[0] = '\0';
+}
 
 /* Structures */
 struct activities
 {
   char timeOfYear[11];
-  char description[131];
+  char description[131]
   char thoughts[131];
   char supplies[131];
   char dateRange[21];
@@ -39,17 +71,17 @@ struct activities
 
 int fLoad(activities array[]);
 void fSave(activities & to_save);
-void to_display();
-void to_read();
+void to_display(activities & act_to_show);
+void to_read(activities & to_read);
 
 /* main() */
 int main()
 {
-  activities a_acts[100];
-  fLoad(a_acts);
-  to_read();
-  to_display();
-  fSave(a_acts[0]);
+  act_data a_acts[100];
+  a_acts.fLoad(a_acts array);
+  a_acts.to_read(a_acts & to_read);
+  a_acts.to_display(a_acts & to_display);
+  a_acts.fSave(a_acts array[0]);
   return 0;
 }
 

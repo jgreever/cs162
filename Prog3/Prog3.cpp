@@ -23,99 +23,80 @@
 using namespace std;
 
 /* Classes */
-class activities /* This will be our class to handle our input */
-{
-  public:
-    activities();   //constructor
-    void to_read();
-    void to_display();
-    void to_save(activities & to_save);
-    int to_load(activities myArray[]);
 
-  private:
-    char activity[26];
-    char location[56];
-    char timeOfYear[11];
-    char description[131];
-    char thoughts[131];
-    char supplies[131];
-    char dateRange[21];
-    int numOfActivities;
-    char myArray[100];
+/* Structures */
+struct activities
+{
+  char timeOfYear[11];
+  char description[131];
+  char thoughts[131];
+  char supplies[131];
+  char dateRange[21];
+  char myArray[100];
+  char activity[26];
+  char location[56];
 };
 
-int to_load(activities myArray[]);
-void to_save(activities & to_save);
+int fLoad(activities array[]);
+void fSave(activities & to_save);
+void to_display();
+void to_read();
 
 /* main() */
 int main()
 {
-  activities getact;
-  getact.to_load(activities myArray);
-  getact.to_read();
-  getact.to_display();
-  getact.to_save(activities & to_save);
+  activities a_acts[100];
+  fLoad(a_acts);
+  to_read();
+  to_display();
+  fSave(a_acts[0]);
   return 0;
 }
 
-/* Functions */
-activities::activities()
-{
-  activity[0] = '\0';
-  location[0] = '\0';
-  timeOfYear[0] = '\0';
-  description[0] = '\0';
-  thoughts[0] = '\0';
-  supplies[0] = '\0';
-  dateRange[0] = '\0';
-  numOfActivities = '\0';
-  myArray[0] = '\0';
-}
-
-void activities::to_read()
+void to_read(activities & to_read)
 {
   cout << "Please type the name of the activity (25 characters max): "
     << endl;
-  cin.get(activity, 26, '\n');
+  cin.get(to_read.activity, 26, '\n');
   cin.ignore(100, '\n');
   cout << "Please type in the location for the activity (55 characters max): "
     << endl;
-  cin.get(location, 56, '\n');
+  cin.get(to_read.location, 56, '\n');
   cin.ignore(100, '\n');
   cout << "Please type the time of year for the activity (10 characters max): "
     << endl;
-  cin.get(timeOfYear, 11, '\n');
+  cin.get(to_read.timeOfYear, 11, '\n');
   cin.ignore(100, '\n');
   cout << "Please enter a description of the activity (130 characters max): "
     << endl;
-  cin.get(description, 131, '\n');
+  cin.get(to_read.description, 131, '\n');
   cin.ignore(100, '\n');
   cout << "Please enter your thoughts on the activity (130 characters max): "
     << endl;
-  cin.get(thoughts, 131, '\n');
+  cin.get(to_read.thoughts, 131, '\n');
   cin.ignore(100, '\n');
   cout << "Please type any supplies you will need (130 characters max): "
     << endl;
-  cin.get(supplies, 131, '\n');
+  cin.get(to_read.supplies, 131, '\n');
   cin.ignore(100, '\n');
   cout << "Please type the date/date range for the activity (20 characters max): "
     << endl;
-  cin.get(dateRange, 21, '\n');
+  cin.get(to_read.dateRange, 21, '\n');
   cin.ignore(100, '\n');
 }
 
-void activities::to_display()
+void to_display(activities & to_display)
 {
-  cout << "Activity: " << activity << endl;
-  cout << "Location: " << location << endl;
-  cout << "Time of Year: " << timeOfYear << endl;
-  cout << "Description: " << description << endl;
-  cout << "Thoughts: " << thoughts << endl;
-  cout << "Supplies: " << supplies << endl;
-  cout << "Date/Date Range: " << dateRange << endl;
+  cout << "Activity: " << to_display.activity << endl;
+  cout << "Location: " << to_display.location << endl;
+  cout << "Time of Year: " << to_display.timeOfYear << endl;
+  cout << "Description: " << to_display.description << endl;
+  cout << "Thoughts: " << to_display.thoughts << endl;
+  cout << "Supplies: " << to_display.supplies << endl;
+  cout << "Date/Date Range: " << to_display.dateRange << endl;
 }
 
-int activities::to_load(activities myArray[])
+int fLoad(activities myArray[])
 {
   ifstream file_in;
   int i = 0;
@@ -141,11 +122,10 @@ int activities::to_load(activities myArray[])
     }
     file_in.close();
   }
-  numOfActivities = i;
   return i;
 }
 
-void activities::to_save(activities & to_save)
+void fSave(activities & to_save)
 {
   ofstream file_out;
   file_out.open("activities.txt", ios::app);

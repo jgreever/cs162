@@ -41,8 +41,8 @@ void save_to_file(movie & to_save)
      * Remember I hve to consider how to read it back
      * Let's plan: title|information|review\n
      */
-    file_out << to_save.title << '|' << to_save.info << '|'
-      << to_save.review << endl;
+    file_out << fSave.title << '|' << fSave.info << '|'
+      << fSave.review << endl;
   }
   file_out.close();
 }

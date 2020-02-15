@@ -37,7 +37,7 @@ void save_to_file(movie & to_save)
   file_out.open("movies.txt", ios::app);
   if(file_out) /* I'm connected!!! */
   {
-    /* Now I can write out to the file
+    /*Now I can write out to the file
      * Remember I hve to consider how to read it back
      * Let's plan: title|information|review\n
      */

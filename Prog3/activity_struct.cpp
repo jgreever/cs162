@@ -1,92 +1,25 @@
+#include "activity_struct.h"
+
 /* Justin Greever
- * CS162  * Program 3
- * 2/6/2020
+ * CS162 - Program 3
+ * 2/15/2020
  *
- * This program will help keep track of my favorite activities.
- * It will keep track of the following:
- * a. Name of the activity
- * b. Where it is located
- * c. Time of year
- * d. Description (130 chars max)
- * e. Thoughts on why its my favorite and why I recoomend it (200 chars max)
- * f. Supplies requires/attire
- * g. Specific date/date range
- * This will be done using functions and structures. Arrays will be a huge
- * part of this program as well. A search feature and ability to display the 
- * results will be included. Here we go!
+ * This file contains the class functions
  */
 
-#include <iostream>
-#include <fstream>
-#include <cctype>
-#include <cstring>
-using namespace std;
-
-/* Classes */
-class act_data
+activity::activity() /* constructor - initialize data members */
 {
-  public:
-    act_data(); /* constructor */
-    int fLoad(); /* load data from file */
-    void fSave(); /* save data to file */
-    void to_display(); /* display data */
-    void to_read(); /* read data from user input */
-
-  private:
-    char ptimeOfYear[11];
-    char pdescription[131];
-    char pthoughts[131];
-    char psupplies[131];
-    char pdateRange[21];
-    char pmyArray[100];
-    char pactivity[26];
-    char plocation[56];
-
-};
-
-act_data::act_data() /* constructor - initialize data members */
-{
-  ptimeOfYear[0] = '\0';
-  pdescription[0] = '\0';
-  pthoughts[0] = '\0';
-  psupplies[0] = '\0';
-  pdateRange[0] = '\0';
-  pmyArray[0] = '\0';
-  pactivity[0] = '\0';
-  plocation[0] = '\0';
+  timeOfYear[0] = '\0';
+  description[0] = '\0';
+  thoughts[0] = '\0';
+  supplies[0] = '\0';
+  dateRange[0] = '\0';
+  myArray[0] = '\0';
+  activity[0] = '\0';
+  location[0] = '\0';
 }
 
-/* Structures */
-struct activities
-{
-  char timeOfYear[11];
-  char description[131];
-  char thoughts[131];
-  char supplies[131];
-  char dateRange[21];
-  char myArray[100];
-  char activity[26];
-  char location[56];
-};
-
-/* prototypes */
-int fLoad(activities array[]);
-void fSave(activities & to_save);
-void to_display(activities & act_to_show);
-void to_read(activities & to_read);
-
-/* main() */
-int main()
-{
-  act_data a_acts[100];
-  fLoad(a_acts array);
-  to_read(a_acts & to_read);
-  to_display(a_acts & to_display);
-  fSave(a_acts array[0]);
-  return 0;
-}
-
-void to_read(activities & to_read)
+void activity::to_read(activity & to_read)
 {
   cout << "Please type the name of the activity (25 characters max): "
     << endl;
@@ -118,7 +51,7 @@ void to_read(activities & to_read)
   cin.ignore(100, '\n');
 }
 
-void to_display(activities & to_display)
+void activity::to_display(activitie & to_display)
 {
   cout << "Activity: " << to_display.activity << endl;
   cout << "Location: " << to_display.location << endl;
@@ -129,7 +62,7 @@ void to_display(activities & to_display)
   cout << "Date/Date Range: " << to_display.dateRange << endl;
 }
 
-int fLoad(activities myArray[])
+int activity::load_from_file(activity myArray[])
 {
   ifstream file_in;
   int i = 0;
@@ -158,7 +91,7 @@ int fLoad(activities myArray[])
   return i;
 }
 
-void fSave(activities & to_save)
+void activity::save_to_file(activity & to_save)
 {
   ofstream file_out;
   file_out.open("activities.txt", ios::app);

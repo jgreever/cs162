@@ -27,14 +27,14 @@ class act_data
 {
   public:
     act_data(); /* constructor */
-    int fLoad();
-    void fSave();
-    void to_display();
-    void to_read();
+    int fLoad(); /* load data from file */
+    void fSave(); /* save data to file */
+    void to_display(); /* display data */
+    void to_read(); /* read data from user input */
 
   private:
     char ptimeOfYear[11];
-    char pdescription[131]
+    char pdescription[131];
     char pthoughts[131];
     char psupplies[131];
     char pdateRange[21];
@@ -60,7 +60,7 @@ act_data::act_data() /* constructor - initialize data members */
 struct activities
 {
   char timeOfYear[11];
-  char description[131]
+  char description[131];
   char thoughts[131];
   char supplies[131];
   char dateRange[21];
@@ -69,6 +69,7 @@ struct activities
   char location[56];
 };
 
+/* prototypes */
 int fLoad(activities array[]);
 void fSave(activities & to_save);
 void to_display(activities & act_to_show);
@@ -78,10 +79,10 @@ void to_read(activities & to_read);
 int main()
 {
   act_data a_acts[100];
-  a_acts.fLoad(a_acts array);
-  a_acts.to_read(a_acts & to_read);
-  a_acts.to_display(a_acts & to_display);
-  a_acts.fSave(a_acts array[0]);
+  fLoad(a_acts array);
+  to_read(a_acts & to_read);
+  to_display(a_acts & to_display);
+  fSave(a_acts array[0]);
   return 0;
 }
 

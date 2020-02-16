@@ -51,7 +51,7 @@ void activity::to_read(activity & to_read)
   cin.ignore(100, '\n');
 }
 
-void activity::to_display(activitie & to_display)
+void activity::to_display(activity & to_display)
 {
   cout << "Activity: " << to_display.activity << endl;
   cout << "Location: " << to_display.location << endl;
@@ -104,3 +104,4 @@ void activity::save_to_file(activity & to_save)
   }
   file_out.close();
 }
+

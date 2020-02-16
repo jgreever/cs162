@@ -14,29 +14,6 @@ using namespace std;
  * max size of input)
  */
 
-/* Classes */
-// commented out this class untill I have struct working first
-//class activity
-//{
-//  public:
-//    activity(); /* constructor */
-//    int load_from_file(); /* load data from file */
-//    void save_to_file(); /* save data to file */
-//    void to_display(); /* display data */
-//    void to_read(); /* read data from user input */
-
-//  private:
-//    char timeOfYear[11];
-//    char description[131];
-//    char thoughts[131];
-//    char supplies[131];
-//    char dateRange[21];
-//    char myArray[100];
-//    char activity[26];
-//    char location[56];
-//
-//};
-
 /* prototypes */
 int load_from_file(activity array[]);
 void save_to_file(activity & activity_to_save);
@@ -55,3 +32,4 @@ struct activity
   char activity[26];
   char location[56];
 };
+

@@ -7,19 +7,19 @@
  * This file contains the class functions
  */
 
-activity::activity() /* constructor - initialize data members */
-{
-  timeOfYear[0] = '\0';
-  description[0] = '\0';
-  thoughts[0] = '\0';
-  supplies[0] = '\0';
-  dateRange[0] = '\0';
-  myArray[0] = '\0';
-  activity[0] = '\0';
-  location[0] = '\0';
-}
+//activity::activity() /* constructor - initialize data members */
+//{
+//  timeOfYear[0] = '\0';
+//  description[0] = '\0';
+//  thoughts[0] = '\0';
+//  supplies[0] = '\0';
+//  dateRange[0] = '\0';
+//  myArray[0] = '\0';
+//  activity[0] = '\0';
+//  location[0] = '\0';
+//}
 
-void activity::to_read(activity & to_read)
+void to_read(activity & to_read)
 {
   cout << "Please type the name of the activity (25 characters max): "
     << endl;
@@ -51,7 +51,7 @@ void activity::to_read(activity & to_read)
   cin.ignore(100, '\n');
 }
 
-void activity::to_display(activity & to_display)
+void to_display(activity & to_display)
 {
   cout << "Activity: " << to_display.activity << endl;
   cout << "Location: " << to_display.location << endl;
@@ -62,7 +62,7 @@ void activity::to_display(activity & to_display)
   cout << "Date/Date Range: " << to_display.dateRange << endl;
 }
 
-int activity::load_from_file(activity myArray[])
+int load_from_file(activity myArray[])
 {
   ifstream file_in;
   int i = 0;
@@ -91,7 +91,7 @@ int activity::load_from_file(activity myArray[])
   return i;
 }
 
-void activity::save_to_file(activity & to_save)
+void save_to_file(activity & to_save)
 {
   ofstream file_out;
   file_out.open("activities.txt", ios::app);

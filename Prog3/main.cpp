@@ -17,13 +17,14 @@
 int main()
 {
   activity list[100];
-  int num = load(list);
+  int num = load_from_file(list);
 
   for(int i = 0; i < num; ++i)
     cout << list[i].activity << endl;
 
   to_read(list[0]);
-
+  to_display(list[0]);
+  save_to_file(list[0]);
   cout << "We read the following information: " << list[0].activity << endl;
   return 0;
 }

@@ -14,12 +14,6 @@ using namespace std;
  * max size of input)
  */
 
-/* prototypes */
-int load_from_file(activity array[]);
-void save_to_file(activity & activity_to_save);
-void to_display(activity & activity_to_show);
-void to_read(activity & activity_to_read);
-
 /* structures */
 struct activity
 {
@@ -32,4 +26,11 @@ struct activity
   char activity[26];
   char location[56];
 };
+
+/* prototypes */
+int load_from_file(activity myArray[]);
+void save_to_file(activity & activity_to_save);
+void to_display(activity & activity_to_show);
+void to_read(activity & activity_to_read);
+
 

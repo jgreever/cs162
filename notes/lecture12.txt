@@ -1,0 +1,113 @@
+Topic #4: Pointers and Dynamic Memory
+
+Pointers:
+  - In C++, a pointer is just a different kind of variable
+  - This type of variable points to another variable or object
+    - i.e., it is used to store the memeory address of another variable 
+      or an object
+    - such pointers must first be defined and then initialized
+    - then, they can be manipulated
+  - A pointer variable is simply a new type of variable 
+    -  instead of holding and int, float, char, or some object's data....
+       it holds an address
+    - A pointer is a variable address
+  - We can have pointers to (one or more)
+    - integers
+    - floting point types
+    - characters
+    - structures
+    - objects of a class
+  - Each represents a different type of pointer 
+  - This creates a pointer to an integer: int * pointer = NULL;
+  - Read this variable definition from right to left:
+    - ptr is a pointer (tht is what the * means) to an integer.
+    - this means ptr can contain the ddress of some other integer 
+  - It is best to set pointers to NULL
+    - if they re not currently referencing a particular memory location
+    - NULL is a #define constant for zero (0)
+
+Defining Pointers:
+  - we define a pointer to an integer by:
+    int * ptr; //sme as int *ptr;
+  - the best initial value for a pointer is:
+    - zero 
+    - also known as NULL 
+    - the following aaccomplish the same thing: 
+      - int *ptr1 = NULL;
+      - int *ptr2 = 0;
+      int *ptr3 (0);
+  - you can also initialize or assign the address of some other variable or a pointer 
+    - using the address-of operator
+      - int variable;
+      - int *ptr1 = &variable;
+
+Allocating Memory Dynamically
+  - Now the interesting stuff!!
+  - You can allocate memory dynamically (as our program is running)
+    - and assign the address of this memory to a pointer variable 
+      - int *ptr1 = new int;
+      - (new is an operator that allocates memory)
+  - to access the memory we must get there indirectly through the pointer variable 
+  - this is called DEREFERENCING
+  - *pointer = 10; (this is dereferencing)
+  - cout << *pointer; (pointer = 10, from above)
+  - variables only live until the closing bracket of that function
+  - for every 'new' ptr1 variable, you must delete when done; delete ptr1
+
+Allocating Arrays Dynamically
+  - first, let's remember what an array is:
+    - the name of an array is a constant address to the first element in the array 
+    - so, saying: char name[21];
+      means that name is a constant pointer who's value is the address of the first 
+      character in a sequence of 21 characters 
+  - since a pointer can point to one item OR the first of mamy items
+    contiguously arranged, we can create an array dynamically but still
+    work with it in just the same way that we are used to!
+  - Dynamically: 
+    int size;
+    cout << "enter size";
+    cin >> size;
+    char * name = new char[size];
+    delete [] name; /* best method to clear arrays when done */
+  - Since the pointer diagram is identical to the pointer diagram for the 
+    statically allocated array discussed earlier!
+    - we can access the elements in the exact same way as we do for an array: 
+      1. word[index] = 'a';
+      2. cin.get(word, 21, '\n');
+
+  -EXAMPLE: 
+    char temp[100];
+    char * name;
+    cout << "Enter your full nme: ";
+    cin.get(temp, 100, '\n');
+    cin.ignore(100, '\n');
+    name = new char[strlen(temp) + 1];     
+    strcpy(name, temp);
+    cout << "You entered: " << name << endl; 
+    delete [] name;
+
+Structures - Dynamically Allocated
+  - to dynamically allocate a structure, we would need a pointer:
+    - product *ptr = new product;
+  - then how would we access the member?
+    - *ptr.item   NOPE!! Wrong!!
+  - to access a member of a struct, we need to realize that there is a 
+    "precedence" problem
+    -  both the dereference (*) and the member access operator (.) have the same operator 
+       precedence....and they associate from right to left 
+  - so parens are required
+    - (*ptr).item   Correct, but ugly
+  - or we can use the indirect member access operator (->)....it is the 
+    dash followed by the greater than sign
+    -  ptr -> item 
+  - object.member vs pointer -> member 
+    - make sure the pointer is NOT NULL before dereferencing
+
+Linear Linked List (LLL)
+  - This is going to be the main focus on the Final and proficancy demo
+  - struct node
+    {
+      char title[21];
+      node * next;
+    };
+

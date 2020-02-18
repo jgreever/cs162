@@ -3,7 +3,7 @@ Topic #4: Pointers and Dynamic Memory
 Pointers:
   - In C++, a pointer is just a different kind of variable
   - This type of variable points to another variable or object
-    - i.e., it is used to store the memeory address of another variable 
+    - i.e., it is used to store the memory address of another variable 
       or an object
     - such pointers must first be defined and then initialized
     - then, they can be manipulated

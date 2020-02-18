@@ -16,12 +16,13 @@
 
 int main()
 {
-  activity list[100];
-  int num = load_from_file(list);
+  activity list[100]; /* 100 entries for our list max, for now */
+  int num = load_from_file(list); /* let's load from a txt file if present */
   cout << num;
   char response = 'Y';
   int i = 0;
 
+  /* Here is the bulk of main(), reading, displaying, saving, and searching */
   while(toupper(response) == 'Y' && i < 100)
   {
     to_read(list[i]);
@@ -32,8 +33,7 @@ int main()
     cin.ignore(100, '\n');
   }
   
-//  show_all(list);
-  
+  /* TODO - Change this function from show all to search all */
   cout << "Would you like to search for an entry? ";
   cin >> response;
   if(toupper(response) == 'Y')

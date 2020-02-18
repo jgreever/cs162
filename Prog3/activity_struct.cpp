@@ -7,6 +7,7 @@
  * This file contains the functions
  */
 
+/* Let's read in activities from the user */
 void to_read(activity & to_read)
 {
   cout << "Please type the name of the activity (25 characters max): "
@@ -39,6 +40,7 @@ void to_read(activity & to_read)
   cin.ignore(100, '\n');
 }
 
+/* Formats output for displaying items in list */
 void to_display(activity & to_display)
 {
   cout << "Activity: " << to_display.activity << endl;
@@ -50,6 +52,7 @@ void to_display(activity & to_display)
   cout << "Date/Date Range: " << to_display.dateRange << endl;
 }
 
+/* Load activities from file, if present */
 int load_from_file(activity myArray[])
 {
   ifstream file_in;
@@ -82,6 +85,7 @@ int load_from_file(activity myArray[])
   return i;
 }
 
+/* Save activities to a text file */
 void save_to_file(activity & to_save)
 {
   ofstream file_out;
@@ -96,6 +100,7 @@ void save_to_file(activity & to_save)
   file_out.close();
 }
 
+/* Shows all activities, will become a search function soon */
 void show_all(activity myArray[])
 {
   int total = load_from_file(myArray);

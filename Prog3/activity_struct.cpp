@@ -108,6 +108,5 @@ void show_all(activity myArray[])
     cout << "Thoughts: " << myArray[i].thoughts << endl;
     cout << "Supplies: " << myArray[i].supplies << endl;
     cout << "Date/Date Range: " << myArray[i].dateRange << endl;
-    ++i;
   }
 }

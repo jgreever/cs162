@@ -111,3 +111,9 @@ Linear Linked List (LLL)
       node * next;
     };
 
+Traversal
+  - node * current = head;
+    current = current -> next;
+    (current points to the second node now, head stays pointed at first entry)
+  - use loops to check that pointer is not NULL
+

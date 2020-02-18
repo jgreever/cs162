@@ -31,7 +31,9 @@ int main()
     cin >> response;
     cin.ignore(100, '\n');
   }
-  show_all(list);
+  
+//  show_all(list);
+  
   cout << "Would you like to search for an entry? ";
   cin >> response;
   if(toupper(response) == 'Y')

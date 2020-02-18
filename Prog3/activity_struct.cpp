@@ -99,7 +99,7 @@ void save_to_file(activity & to_save)
 void show_all(activity myArray[])
 {
   int total = load_from_file(myArray);
-  for(int i = 0; i < total; ++i)
+  for(int i = 0; i < (total - 1); ++i)
   {
     cout << "Activity: " << myArray[i].activity << endl;
     cout << "Location: " << myArray[i].location << endl;
@@ -108,5 +108,8 @@ void show_all(activity myArray[])
     cout << "Thoughts: " << myArray[i].thoughts << endl;
     cout << "Supplies: " << myArray[i].supplies << endl;
     cout << "Date/Date Range: " << myArray[i].dateRange << endl;
+    cout << endl;
+    cout << "*****************************************" << endl;
+    cout << endl;
   }
 }

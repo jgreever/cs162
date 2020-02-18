@@ -32,5 +32,5 @@ int load_from_file(activity myArray[]);
 void save_to_file(activity & activity_to_save);
 void to_display(activity & activity_to_show);
 void to_read(activity & activity_to_read);
-
+void show_all(activity myArray[]);
 

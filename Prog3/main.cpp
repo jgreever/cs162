@@ -18,13 +18,25 @@ int main()
 {
   activity list[100];
   int num = load_from_file(list);
+  cout << num;
+  char response = 'Y';
+  int i = 0;
 
-  for(int i = 0; i < num; ++i)
-    cout << list[i].activity << endl;
-
-  to_read(list[0]);
-  to_display(list[0]);
-  save_to_file(list[0]);
-  cout << "We read the following information: " << list[0].activity << endl;
+  while(toupper(response) == 'Y' && i < 100)
+  {
+    to_read(list[i]);
+    to_display(list[i]);
+    save_to_file(list[i]);
+    cout << "Add another activity? Y for yes and N for no: ";
+    cin >> response;
+    cin.ignore(100, '\n');
+  }
+  show_all(list);
+  cout << "Would you like to search for an entry? ";
+  cin >> response;
+  if(toupper(response) == 'Y')
+  {
+   show_all(list);
+  }
   return 0;
 }

@@ -4,20 +4,8 @@
  * CS162 - Program 3
  * 2/15/2020
  *
- * This file contains the class functions
+ * This file contains the functions
  */
-
-//activity::activity() /* constructor - initialize data members */
-//{
-//  timeOfYear[0] = '\0';
-//  description[0] = '\0';
-//  thoughts[0] = '\0';
-//  supplies[0] = '\0';
-//  dateRange[0] = '\0';
-//  myArray[0] = '\0';
-//  activity[0] = '\0';
-//  location[0] = '\0';
-//}
 
 void to_read(activity & to_read)
 {
@@ -66,14 +54,15 @@ int load_from_file(activity myArray[])
 {
   ifstream file_in;
   int i = 0;
-
   file_in.open("activities.txt");
   if(file_in)
   {
-    file_in.get(myArray[i].activity, 26, '|');
-    file_in.ignore(100, '|');
+//    file_in.get(myArray[i].activity, 26, '|');
+//    file_in.ignore(100, '|');
     while(!file_in.eof() && i < 100) /* Limiting to 100 entries for now */
     {
+      file_in.get(myArray[i].activity, 26, '|');
+      file_in.ignore(100, '|');
       file_in.get(myArray[i].location, 56, '|');
       file_in.ignore(100, '|');
       file_in.get(myArray[i].timeOfYear, 11, '|');
@@ -84,7 +73,9 @@ int load_from_file(activity myArray[])
       file_in.ignore(100, '|');
       file_in.get(myArray[i].supplies, 131, '|');
       file_in.ignore(100, '|');
-      file_in.get(myArray[i].dateRange, 21, '|');
+      file_in.get(myArray[i].dateRange, 21, '\n');
+      file_in.ignore(100, '\n');
+      ++i;
     }
     file_in.close();
   }
@@ -105,3 +96,18 @@ void save_to_file(activity & to_save)
   file_out.close();
 }
 
+void show_all(activity myArray[])
+{
+  int total = load_from_file(myArray);
+  for(int i = 0; i < total; ++i)
+  {
+    cout << "Activity: " << myArray[i].activity << endl;
+    cout << "Location: " << myArray[i].location << endl;
+    cout << "Time of Year: " << myArray[i].timeOfYear << endl;
+    cout << "Description: " << myArray[i].description << endl;
+    cout << "Thoughts: " << myArray[i].thoughts << endl;
+    cout << "Supplies: " << myArray[i].supplies << endl;
+    cout << "Date/Date Range: " << myArray[i].dateRange << endl;
+    ++i;
+  }
+}

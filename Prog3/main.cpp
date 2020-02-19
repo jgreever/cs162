@@ -31,7 +31,6 @@ int main()
     cout << "Add another activity? Y for yes and N for no: ";
     cin >> response;
     cin.ignore(100, '\n');
-    save_to_file(list[i]);
   }
   
   /* This function allows a user to search all activities */

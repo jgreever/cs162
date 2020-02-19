@@ -57,25 +57,25 @@ int load_from_file(activity myArray[])
 {
   ifstream file_in;
   int i = 0;
-  file_in.open("activities.txt");
+  file_in.open("favorite.txt");
   if(file_in)
   {
     //    file_in.get(myArray[i].activity, 26, '|');
     //    file_in.ignore(100, '|');
     while(!file_in.eof() && i < 100) /* Limiting to 100 entries for now */
     {
-      file_in.get(myArray[i].activity, 51, '|');
-      file_in.ignore(100, '|');
-      file_in.get(myArray[i].location, 51, '|');
-      file_in.ignore(100, '|');
-      file_in.get(myArray[i].timeOfYear, 26, '|');
-      file_in.ignore(100, '|');
-      file_in.get(myArray[i].description, 131, '|');
-      file_in.ignore(100, '|');
-      file_in.get(myArray[i].thoughts, 201, '|');
-      file_in.ignore(100, '|');
-      file_in.get(myArray[i].supplies, 131, '|');
-      file_in.ignore(100, '|');
+      file_in.get(myArray[i].activity, 51, '#');
+      file_in.ignore(100, '#');
+      file_in.get(myArray[i].location, 51, '#');
+      file_in.ignore(100, '#');
+      file_in.get(myArray[i].timeOfYear, 26, '#');
+      file_in.ignore(100, '#');
+      file_in.get(myArray[i].description, 131, '#');
+      file_in.ignore(100, '#');
+      file_in.get(myArray[i].thoughts, 201, '#');
+      file_in.ignore(100, '#');
+      file_in.get(myArray[i].supplies, 131, '#');
+      file_in.ignore(100, '#');
       file_in.get(myArray[i].dateRange, 26, '\n');
       file_in.ignore(100, '\n');
       ++i;
@@ -89,13 +89,13 @@ int load_from_file(activity myArray[])
 void save_to_file(activity & to_save)
 {
   ofstream file_out;
-  file_out.open("activities.txt", ios::app);
+  file_out.open("favorite.txt", ios::app);
   if(file_out)
   {
-    file_out << to_save.activity << '|' << to_save.location << '|'
-      << to_save.timeOfYear << '|' << to_save.description
-      << '|' << to_save.thoughts << '|' << to_save.supplies
-      << '|' << to_save.dateRange << endl;
+    file_out << to_save.activity << '#' << to_save.location << '#'
+      << to_save.timeOfYear << '#' << to_save.description
+      << '#' << to_save.thoughts << '#' << to_save.supplies
+      << '#' << to_save.dateRange << endl;
   }
   file_out.close();
 }

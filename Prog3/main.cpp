@@ -18,7 +18,7 @@ int main()
 {
   activity list[100]; /* 100 entries for our list max, for now */
   int num = load_from_file(list); /* let's load from a txt file if present */
-  cout << num;
+//  cout << num; /* used to test if file read ok and return # of activities */
   char response = 'Y';
   int i = 0;
 
@@ -31,14 +31,20 @@ int main()
     cout << "Add another activity? Y for yes and N for no: ";
     cin >> response;
     cin.ignore(100, '\n');
+    save_to_file(list[i]);
   }
   
-  /* TODO - Change this function from show all to search all */
+  /* This function allows a user to search all activities */
   cout << "Would you like to search for an entry? ";
   cin >> response;
-  if(toupper(response) == 'Y')
+  cin.ignore(100, '\n');
+  while(toupper(response) == 'Y')
   {
-   show_all(list);
+    search_activity(list);
+    cout << endl;
+    cout << "Would you like to search again: ";
+    cin >> response;
+    cin.ignore(100, '\n');
   }
   return 0;
 }

@@ -12,15 +12,15 @@ void to_read(activity & to_read)
 {
   cout << "Please type the name of the activity (25 characters max): "
     << endl;
-  cin.get(to_read.activity, 26, '\n');
+  cin.get(to_read.activity, 51, '\n');
   cin.ignore(100, '\n');
   cout << "Please type in the location for the activity (55 characters max): "
     << endl;
-  cin.get(to_read.location, 56, '\n');
+  cin.get(to_read.location, 51, '\n');
   cin.ignore(100, '\n');
   cout << "Please type the time of year for the activity (10 characters max): "
     << endl;
-  cin.get(to_read.timeOfYear, 11, '\n');
+  cin.get(to_read.timeOfYear, 26, '\n');
   cin.ignore(100, '\n');
   cout << "Please enter a description of the activity (130 characters max): "
     << endl;
@@ -28,7 +28,7 @@ void to_read(activity & to_read)
   cin.ignore(100, '\n');
   cout << "Please enter your thoughts on the activity (130 characters max): "
     << endl;
-  cin.get(to_read.thoughts, 131, '\n');
+  cin.get(to_read.thoughts, 201, '\n');
   cin.ignore(100, '\n');
   cout << "Please type any supplies you will need (130 characters max): "
     << endl;
@@ -36,7 +36,7 @@ void to_read(activity & to_read)
   cin.ignore(100, '\n');
   cout << "Please type the date/date range for the activity (20 characters max): "
     << endl;
-  cin.get(to_read.dateRange, 21, '\n');
+  cin.get(to_read.dateRange, 26, '\n');
   cin.ignore(100, '\n');
 }
 
@@ -60,23 +60,23 @@ int load_from_file(activity myArray[])
   file_in.open("activities.txt");
   if(file_in)
   {
-//    file_in.get(myArray[i].activity, 26, '|');
-//    file_in.ignore(100, '|');
+    //    file_in.get(myArray[i].activity, 26, '|');
+    //    file_in.ignore(100, '|');
     while(!file_in.eof() && i < 100) /* Limiting to 100 entries for now */
     {
-      file_in.get(myArray[i].activity, 26, '|');
+      file_in.get(myArray[i].activity, 51, '|');
       file_in.ignore(100, '|');
-      file_in.get(myArray[i].location, 56, '|');
+      file_in.get(myArray[i].location, 51, '|');
       file_in.ignore(100, '|');
-      file_in.get(myArray[i].timeOfYear, 11, '|');
+      file_in.get(myArray[i].timeOfYear, 26, '|');
       file_in.ignore(100, '|');
       file_in.get(myArray[i].description, 131, '|');
       file_in.ignore(100, '|');
-      file_in.get(myArray[i].thoughts, 131, '|');
+      file_in.get(myArray[i].thoughts, 201, '|');
       file_in.ignore(100, '|');
       file_in.get(myArray[i].supplies, 131, '|');
       file_in.ignore(100, '|');
-      file_in.get(myArray[i].dateRange, 21, '\n');
+      file_in.get(myArray[i].dateRange, 26, '\n');
       file_in.ignore(100, '\n');
       ++i;
     }
@@ -101,20 +101,27 @@ void save_to_file(activity & to_save)
 }
 
 /* Shows all activities, will become a search function soon */
-void show_all(activity myArray[])
+void search_activity(activity myArray[])
 {
+  char search_query[26];
+  cout << "Type the activity name to search for: ";
+  cin >> search_query;
+  cin.ignore(100, '\n');
   int total = load_from_file(myArray);
   for(int i = 0; i < (total - 1); ++i)
   {
-    cout << "*****************************************" << endl;
-    cout << endl;
-    cout << "Activity: " << myArray[i].activity << endl;
-    cout << "Location: " << myArray[i].location << endl;
-    cout << "Time of Year: " << myArray[i].timeOfYear << endl;
-    cout << "Description: " << myArray[i].description << endl;
-    cout << "Thoughts: " << myArray[i].thoughts << endl;
-    cout << "Supplies: " << myArray[i].supplies << endl;
-    cout << "Date/Date Range: " << myArray[i].dateRange << endl;
-    cout << endl;
+    if(strcmp(myArray[i].activity, search_query) == 0)
+    {
+      cout << "*****************************************" << endl;
+      cout << endl;
+      cout << "Activity: " << myArray[i].activity << endl;
+      cout << "Location: " << myArray[i].location << endl;
+      cout << "Time of Year: " << myArray[i].timeOfYear << endl;
+      cout << "Description: " << myArray[i].description << endl;
+      cout << "Thoughts: " << myArray[i].thoughts << endl;
+      cout << "Supplies: " << myArray[i].supplies << endl;
+      cout << "Date/Date Range: " << myArray[i].dateRange << endl;
+      cout << endl;
+    }
   }
 }

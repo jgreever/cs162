@@ -125,3 +125,22 @@ void search_activity(activity myArray[])
     }
   }
 }
+
+/* Display all activities */
+void display_all(activity myArray[])
+{
+  int total = load_from_file(myArray);
+  for(int i = 0; i < (total - 1); ++i)
+  {
+    cout << "*****************************************" << endl;
+    cout << endl;
+    cout << "Activity: " << myArray[i].activity << endl;
+    cout << "Location: " << myArray[i].location << endl;
+    cout << "Time of Year: " << myArray[i].timeOfYear << endl;
+    cout << "Description: " << myArray[i].description << endl;
+    cout << "Thoughts: " << myArray[i].thoughts << endl;
+    cout << "Supplies: " << myArray[i].supplies << endl;
+    cout << "Date/Date Range: " << myArray[i].dateRange << endl;
+    cout << endl; 
+  }
+}

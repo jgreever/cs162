@@ -21,8 +21,54 @@ int main()
 //  cout << num; /* used to test if file read ok and return # of activities */
   char response = 'Y';
   int i = 0;
+  char menu;
+  
+  cout << "Which of the following would you like to do?" << endl;
+//  cout << "L to load from the file" << endl;
+  cout << "A to add a new activity" << endl;
+  cout << "S to search for an activity" << endl;
+  cout << "D to display all activities" << endl;
+  cout << "Q to quit" << endl;
+  cout << "Enter your choice [A, S, D, Q]: ";
+//  cin >> menu;
+//  cin.ignore(100, '\n');
+  
+  while(response == 'Y')
+  {
+//    if(toupper(menu) == 'L' && i < 100)
+//    {
+//      int num = load_from_file(list); 
+//    }
+    cout << "'A'dd, 'S'earch, 'D'isplay, 'Q'uit: ";
+    cin >> menu;
+    cin.ignore(100, '\n');
 
-  /* Here is the bulk of main(), reading, displaying, saving, and searching */
+    if(toupper(menu) == 'A' && i < 100)
+    {
+      to_read(list[i]);
+    }
+    else if(toupper(menu) == 'S' && i < 100)
+    {
+      search_activity(list);
+    }
+    else if(toupper(menu) == 'D' && i < 100)
+    {
+      display_all(list);
+    }
+    else if(toupper(menu) == 'Q')
+    {
+      cout << "Goodbye!";
+      response = 'N';
+    }
+    else
+    {
+      cout << "Continue? 'Y' or 'N': ";
+      cin >> response;
+      cin.ignore(100, '\n');
+    }  
+  }  
+/*
+  // Here is the bulk of main(), reading, displaying, saving, and searching
   while(toupper(response) == 'Y' && i < 100)
   {
     to_read(list[i]);
@@ -33,7 +79,7 @@ int main()
     cin.ignore(100, '\n');
   }
   
-  /* This function allows a user to search all activities */
+  //This function allows a user to search all activities
   cout << "Would you like to search for an entry? ";
   cin >> response;
   cin.ignore(100, '\n');
@@ -44,6 +90,6 @@ int main()
     cout << "Would you like to search again: ";
     cin >> response;
     cin.ignore(100, '\n');
-  }
+  }*/
   return 0;
 }

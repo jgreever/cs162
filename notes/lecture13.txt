@@ -1,0 +1,123 @@
+Lecture 13 - More LLL Stuff!
+1. Remember LLL 
+2. How to create a LLL 
+  a. special cases
+  b. insert at the beginning
+  c. add at the end
+3. Demonstrating LLL in code *.h and *.cpp)
+4. Next....insert in sorted order
+
+PRACTICE!!!
+
+Program 4: basically the same as Prog3, but using
+  classes instead of structs.  We can toss out 
+  creating an external file function, it will be done
+  for us. This program has the written algorithn but 
+  we are moving from the prior diagrams to a UML diagram. 
+  This type of diagram shows how functions act with others
+  and shows their data/class structure. 
+
+each box is called a node: 
+  []-> (head), [][]-> (data)(next ptr) [][/] (tail)
+sometimes next is called link 
+
+****************************
+//Structures and Classes
+struct node
+{
+  video show; //data 
+  node* next; //a pointer to the next node; it's NULL if last node. 
+};
+
+//These are PRIVATE DATA MEMBERS!!!
+node* head; //mandatory!!
+node* tail; //possibly
+node* temp; //could be used if needed
+
+//Function
+node* current = head; //starts off at the beginning of the list
+****************************
+
+structs and classes must go in order. you can't put a function in one
+that lives below the calling function. 
+
+Traversal 
+  a. current = current->next; //(*current.next)
+  b. NOT LIKE THESE: 
+    ++current;
+    current->next;
+    current->next = current;
+  
+  ORDER IS IMPORTANT when making nodes. insert first, then re-link head or link 
+  the temp node to the proper node, then make sure the previous node is linked
+  to what was the temp node. 
+
+previous, current, next. used to insert data to a LLL. Should keep them in 
+sorted order (small to large, etc). 
+
+USE THIS TO TRAVERSE AND FIND THE LAST USABLE NODE!!
+while(current->next != NULL)
+  current = current->next;
+
+Inserting into an empty list
+1. empty list (head)
+2. detecting this case: 
+  if(head == NULL) //or if(NULL==head) //or if(!head) //true when head is NULL 
+3. inserting:
+  head = new node;
+  //store the data 
+  head->next = NULL; //IMPORTANT!!!
+
+Detecting
+1. if(head && data_being_added < head->data) //else if(data_being_added < head->data)
+2. temp = new node;
+   //store the data 
+   temp->next = head;
+   head = temp; //order is IMPORTANT!!!
+
+Adding at the end of the LLL 
+1. Keep head locked on the first node 
+2. Use another local variable to assist with traversal
+   node* current = head;
+3. Traverse until: 
+   current->next |IS| NULL 
+4. If you do current = NULL, you've gone too far. 
+5. while(current->next != NULL) //find the last node 
+   current->next = temp;
+   temp->next = NULL;
+   //save the data into temp 
+USED TO ADD TO THE END OF A LLL ^^
+
+Inserting in the middle
+1. while(current && not time to stop)
+   {
+     previous = current;
+     current = current->next;
+   }
+Connect up
+1. previous->next = temp;
+   temp->next = current;
+
+USE THE ALL THE CODE ABOVE TO MAKE A SORTED LLL!!!
+
+PRELAB:
+Dereference *
+Address of: &
+new 
+delete
+segfault
+h 
+hello 
+l 
+llo
+o 
+ptr* = new char[50];
+for an array, yes
+?????????
+delete[] prt
+1st node 
+if(!head);
+new is to allocate memory
+current = current->next;
+would never change anything
+

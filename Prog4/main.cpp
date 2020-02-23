@@ -4,8 +4,10 @@
 //Program 4
 //
 #include "header.h"
+#include "class.h"
 
 int main()
 {
+  activity readact();
   return 0;
 }

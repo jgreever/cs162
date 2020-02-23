@@ -8,3 +8,10 @@
 #include <cstring>
 #include <fstream>
 
+using namespace std;
+
+struct node
+{
+    int data;
+    node *next;
+};

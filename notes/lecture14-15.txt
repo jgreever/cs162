@@ -1,0 +1,88 @@
+Lecture 14/15 combined since we missed last lecture
+
+1) Deletion Algorithms for a LLL
+2) Removing all nodes in a LLL
+3) Experience Recursion
+4) Next time: RECURSION!!!
+
+Special Cases
+1. Empty List [/]head
+2. Remove the first node, causing head to be changed [head] -> [DELETED] -> [temp]
+3. Remove elsewhere - requiring traversal! [head] -> [] -> [MATCH] -> [] -> [/]
+                                           use a previous varible and current variable
+4. No match found (ultimtely current becomes NULL) - DO NOTHING!
+
+Special Cases cont.
+Case #1: Empty List 
+  if(!head) // if head is NULL (or if(NULL == head))
+    return; // nothing to delete
+
+Case #2: Remove the first node, causing head to be changed 
+  [head]->[match][]->[][/]
+  if(strcmp(head->data, match) == 0) // Match!!
+      // if our data, and match, are arrays of characters
+  {
+    temp = head->next; // delete[]head->data; (in program 5)
+    delete head;
+    head = temp;
+  }
+
+Case #3: Remove elsewhere requiring traversal 
+  [head]->[previous][]->[current][]->[][]->[][/]
+  current = head->next; // 2nd node 
+  previous = head;
+  while(current && strcmp(current->data, match) != 0)
+  {
+    previous = current; // so we can reconnect around the node being deleted
+    current = current->next; // traverse to the next node 
+  }
+Case #4: So... coud current be NULL now?
+  if(current != NULL) // something to remove
+  {
+    previous->next = current->next;
+    delete current;
+  }
+
+Remove the last node of a LLL:
+1. if empty -- do nothing 
+2. if there is only 1 node -- head is affected
+3. traverse to the end (but don't go too far)
+  while(current->next != NULL) // takes you to the last node in the LLL
+  {
+    previous = current;
+    current = current->next;
+    previous->next = NULL;
+  }
+
+Remove All
+1. Need temporary poiinters (local variables)
+
+If there are nodes --
+1. set temp to point to the next node
+2. delete the dynamic memory managed by the node that head points to 
+3. delete the node that head points to 
+4. update head to point where temp is pointing
+
+class list
+{
+  public:
+    list(); //constructor (head = NULL)
+    ~list(); //destructor (deallocate dynamic memory)
+  private:
+    node * head;
+}
+
+struct node 
+{
+  ~node();
+  char * name;
+  node * next;
+};
+
+node::~node()
+{
+  delete[]name;
+  delete next;
+  next = NULL;
+}
+

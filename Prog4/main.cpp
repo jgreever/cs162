@@ -1,20 +1,21 @@
-//Justin Greever
-//2/22/2020
-//CS162
-//Program 4
-//This program will help keep track of user
-//activites. It 'can' be used to store to a 
-//file if needed, but the main points are to
-//use structs/classes/nodes to create the same
-//program as our last one, storing user entered
-//activites with the possibility of recalling 
-//from a file later.
+/*
+ * Justin Greever
+ * CS162
+ * Program 4
+ * 3/1/2020 [Code split to files poperly on this date]
+ * This program will take an activity from a user
+ * and store it using nodes. It will allow the user to
+ * load from a file, save to a file, enter a new activity
+ * and search and display activities. It will keep track 
+ * of the activity, dates, time of year, thoughts, description
+ * supplies, and location.
+ */
 
-#include "header.h"
 #include "class.h"
 
 int main()
 {
-  activity readact();
-  return 0;
+  activities acts;
+  acts.add();
+ return 0;
 }

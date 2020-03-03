@@ -15,6 +15,10 @@
 
 int main()
 {
-  char entry;
+  char entry[301];
+  cout << "Enter the activity name: ";
+  cin.get(entry, 301, '\n');
+  cin.ignore(100, '\n');
+  void add(char entry);
   return 0;
 }

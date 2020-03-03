@@ -18,25 +18,21 @@
 
 using namespace std;
 
-struct node
+class node
 {
-  char data;
-  node * next;
+  public:
+    char data;
+    node * next;
 };
 
 class list
 {
   public:
-    list()
-    {
-      head = NULL;
-      tail = NULL;
-      current = NULL;
-    }
+    list();
     void add(char entry);
   private:
-    node * head;
-    node * tail;
-    node * current;
+    node * head = NULL;
+    node * tail = NULL;
+    node * current = NULL;
 };
 

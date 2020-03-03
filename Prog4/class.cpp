@@ -15,4 +15,7 @@
 
 void list::add(char entry)
 {
+  head = new node();
+  tail = new node();
+  current = new node();
 }

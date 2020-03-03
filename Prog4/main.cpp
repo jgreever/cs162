@@ -15,6 +15,6 @@
 
 int main()
 {
-  char entry[301];
+  char entry;
   return 0;
 }

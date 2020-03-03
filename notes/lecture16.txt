@@ -1,0 +1,33 @@
+Topic 5: Recursion
+//Binary Search//
+** Program 4 delayed 2 days on both normal and late turn-in **
+
+* Recursion is repetition (by self-reference)
+  * it is caused when a function calls/invokes itself
+  * such a process will repeat forever unless terminated by some control structure
+* So far, we have learned about control structures that allow C++ to iterate a set of statements a number of times.
+* In addition to iteration, C++ can repeat an action by having a function call itself
+  * this is called recursion. In some cases it is more suitable than itertion
+* While recursion is very powerful
+  * and will allow us to at times to simply solve complex problems
+
+  * What is the purpose of the folowing?
+    void strange(void);
+    int main()
+    {
+      cout << "Please enter a string" << endl;
+      strange();
+      cout << endl;
+      return 0;
+    }
+
+    void strange(void)
+    {
+      char ch;
+      cin.get(ch);
+      if(ch != '\n')
+      {
+        strange();
+        cout << ch;
+      }
+    }

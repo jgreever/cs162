@@ -20,31 +20,23 @@ using namespace std;
 
 struct node
 {
-  char * data;
-  struct node * next;
+  char data;
+  node * next;
 };
 
-class activities
+class list
 {
   public:
-    activities()
+    list()
     {
       head = NULL;
       tail = NULL;
       current = NULL;
-      previous = NULL;
     }
-//    ~activities();
-    void load();
-    void add();
-    void search();
-    void display();
-    void save();
-    void displayAll();
-
+    void add(char entry);
   private:
-    struct node * head;
-    struct node * tail;
-    struct node * current;
-    struct node * previous;
+    node * head;
+    node * tail;
+    node * current;
 };
+

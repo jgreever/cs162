@@ -15,7 +15,6 @@
 
 int main()
 {
-  activities acts;
-  acts.add();
- return 0;
+  char entry[301];
+  return 0;
 }

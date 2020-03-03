@@ -13,26 +13,6 @@
 
 #include "class.h"
 
-void activities::add()
+void list::add(char entry)
 {
-  char add_entry[301];
-  cout << "Please type the name of the " << endl;
-  cout << "activity to enter: ";
-  cin.get(add_entry, 301, '\n');
-  cin.ignore(100, '\n');
-  node * temp = new node;
-  if(!head)
-  {
-    temp->data = strcpy(temp->data, add_entry);
-    head = temp;
-    tail = temp;
-    temp->next = NULL;
-
-  }
-  else
-  {
-    temp->data = strcpy(temp->data, add_entry);
-    temp->next = head;
-    head = temp;
-  }
 }

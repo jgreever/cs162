@@ -1,0 +1,9 @@
+Lecture 17 - CS162
+
+1. Continue creating recursive solutions!
+
+Announcements:
+  *Practice!!
+  *LLL insert, remove, traversal
+  *recursion
+

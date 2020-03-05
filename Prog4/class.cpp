@@ -18,4 +18,11 @@ void list::add(char entry)
   head = new node();
   tail = new node();
   current = new node();
+  if(!head)
+  {
+    current = new node;
+    head->next = current;
+    strcpy(current->data, entry);
+    cout << current->data;
+  }
 }

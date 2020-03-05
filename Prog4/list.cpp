@@ -21,8 +21,17 @@
 
 #include "list.h"
 
-list::list()
+list::list() //list constructor
 {
-  head = NULL;
+  head = NULL; //set head equal to NULL
 }
 
+void add(node * & head, char entry)
+{
+  if(NULL == head) //add node if head == NULL
+  {
+    head = new node;
+    head->next = NULL;
+    head->data = entry;
+  }
+}

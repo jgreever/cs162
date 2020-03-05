@@ -35,7 +35,8 @@ class list
 {
   private:
     node * head;
+    node * tail;
   public:
     list();
-    void add();
+    void add(node * & head, char entry);
 };

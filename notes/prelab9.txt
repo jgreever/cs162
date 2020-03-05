@@ -1,0 +1,12 @@
+CS162 Lab #9 - Pre-Lab Worksheet - Recursion
+if(!head)
+  NA
+display the data
+call the function w/head->next
+No
+if(!head)
+return just one item / return sum of two items
+head->next
+no
+
+

@@ -19,10 +19,23 @@
  * name.
  */
 
-#include "list.h"
+#include <iostream>
+#include <fstream>
+#include <cctype>
+#include <cstring>
+using namespace std;
 
-int main()
+struct node
 {
+    char data;
+    node * next;
+};
 
-  return 0;
-}
+class list
+{
+  private:
+    node * head;
+  public:
+    list();
+    void add();
+};

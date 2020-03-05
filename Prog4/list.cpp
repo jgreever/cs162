@@ -21,8 +21,8 @@
 
 #include "list.h"
 
-int main()
+list::list()
 {
-
-  return 0;
+  head = NULL;
 }
+

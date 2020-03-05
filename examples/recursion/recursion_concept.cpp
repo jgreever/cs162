@@ -22,7 +22,7 @@ For the repetitive part (recursion)
 
 void display_mydata(node * head)
 {
-  if(NULLL == head)
+  if(NULL == head)
     return;
   cout << head->data << " "; //Before display_mydata(head->next); for regular traversal
   display_mydata(head->next); //After this cal will make the list print in reverse order

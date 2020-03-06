@@ -23,6 +23,5 @@
 
 int main()
 {
-  add(); //function to add a node if head == NULL
   return 0;
 }

@@ -21,17 +21,39 @@
 
 #include "list.h"
 
-list::list() //list constructor
+activities::activities()
 {
-  head = NULL; //set head equal to NULL
+  timeOfYear[0] = '\0';
+  description[0] = '\0';
+  thoughts[0] = '\0';
+  supplies[0] = '\0';
+  dateRange[0] = '\0';
+  activity[0] = '\0';
+  location[0] = '\0';
 }
 
-void add(node * & head, char entry)
+list::list()
 {
-  if(NULL == head) //add node if head == NULL
+  head = NULL;
+  tail = NULL;
+  numOfItems = 0;
+  sizeOfArray = 0;
+}
+
+void list::read_in()
+{
+  if(NULL == head)
   {
     head = new node;
+    head->data = activities;
     head->next = NULL;
-    head->data = entry;
   }
+}
+
+void activities::read_new()
+{
+  activities newAct;
+  cout << "Please enter the activity name: ";
+  cin.get(newAct.activity, 51, '\0');
+  cin.ignore(100, '\n');
 }

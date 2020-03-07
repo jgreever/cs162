@@ -40,12 +40,12 @@ list::list()
   sizeOfArray = 0;
 }
 
-void list::read_in()
+void list::read_in(node * & head, char & activities)
 {
   if(NULL == head)
   {
     head = new node;
-    head->data = activities;
+    strcpy(head->data, activities);
     head->next = NULL;
   }
 }

@@ -66,7 +66,7 @@ class list
   public:
     list();
     ~list();
-    void read_in();
+    void read_in(node * & head, char & activities);
     void display_all();
     void display_match(char to_match[]);
 };

@@ -1,0 +1,17 @@
+1) Count # of nodes:
+    if(!head) return 0;
+    return function(head->next) +1
+
+2) Delete entire list:
+  - before recursive call
+      if(!head) return 0;
+      node * temp = head->next;
+      delete head;
+      head = temp;
+      return function(head)
+
+  - after recursive call
+      if(!head) return 0;
+      return function(head->next);
+      delete head;
+      head = NULL;

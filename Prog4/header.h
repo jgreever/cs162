@@ -20,53 +20,47 @@
  */
 
 #include <iostream>
-#include <fstream>
 #include <cctype>
 #include <cstring>
 using namespace std;
 
-//struct node
-//{
-//    activities data;
-//    node * next;
-//};
-
-class activities 
+class actlist
 {
-   public:
-    activities();
-    ~activities();
-    void read_new();
-    void display();
-    bool compare_subject(char to_compare[]); 
+  public:
+    actlist();
+//    ~actlist();
+    void newAct();
+    void displayAct();
+    bool compareName();
   private:
+    char activity[51];
+    char location[51];
     char timeOfYear[26];
     char description[131];
     char thoughts[201];
     char supplies[131];
     char dateRange[26];
-    char activity[51];
-    char location[51];
 };
 
 struct node
 {
-  activities data;
-  node * next;
+    char data;
+    node * next;
 };
 
-class list
+class activities
 {
-  private:
-    //ptr->activity //TODO pointer to an activity class object
-    node * head;
-    node * tail;
-    int numOfItems;
-    int sizeOfArray;
   public:
-    list();
-    ~list();
-    void read_in(node * & head, char & activities);
-    void display_all();
-    void display_match(char to_match[]);
+    activities();
+//    ~activities();
+    void readIn();
+    void displayAll();
+    void isMatch();
+  private:
+    node * head;
+    node * current;
+    node * tail;
+    int numActs;
+    int arraySize;
 };
+

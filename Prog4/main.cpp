@@ -19,9 +19,12 @@
  * name.
  */
 
-#include "list.h"
+#include "header.h"
 
 int main()
 {
+  actlist actl;
+  activities act;
+  actl.newAct();
   return 0;
 }

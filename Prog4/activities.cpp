@@ -19,41 +19,40 @@
  * name.
  */
 
-#include "list.h"
+#include "header.h"
 
 activities::activities()
 {
-  timeOfYear[0] = '\0';
-  description[0] = '\0';
-  thoughts[0] = '\0';
-  supplies[0] = '\0';
-  dateRange[0] = '\0';
-  activity[0] = '\0';
-  location[0] = '\0';
-}
-
-list::list()
-{
   head = NULL;
+  current = NULL;
   tail = NULL;
-  numOfItems = 0;
-  sizeOfArray = 0;
+  numActs = 0;
+  arraySize = 0;
 }
 
-void list::read_in(node * & head, char & activities)
+void activities::readIn()
 {
-  if(NULL == head)
+  if(!head)
   {
     head = new node;
-    strcpy(head->data, activities);
     head->next = NULL;
   }
+  node * current = head;
+  if(current)
+    while(current->next != NULL)
+      current = current->next;
+  current->next = new node;
+  current = current->next;
+  current->data = 0; //TODO replace 0 with the input data 
+  current->next = NULL;
 }
 
-void activities::read_new()
+void displayAll()
 {
-  activities newAct;
-  cout << "Please enter the activity name: ";
-  cin.get(newAct.activity, 51, '\0');
-  cin.ignore(100, '\n');
+
+}
+
+void isMatch()
+{
+
 }

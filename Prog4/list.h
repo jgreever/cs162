@@ -25,7 +25,12 @@ list::list(){}
 
 list list::newAct()
 {
+  list li;
+  // ask user to input data
+  cout << "Please enter the activity name: ";
+  cin.get(li.activity, 51, '\n');
+  cin.ignore(100, '\n');
+  cout << endl;
   
-
-  return newList;
+  return li;
 }

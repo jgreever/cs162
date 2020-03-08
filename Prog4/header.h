@@ -24,7 +24,7 @@
 #include <cstring>
 using namespace std;
 
-class node; // forward declaration so we can pass head
+//class node; // forward declaration so we can pass head
 
 class list
 {
@@ -47,9 +47,12 @@ class list
 class node
 {
   public:
+    node();
     list data;
     node * next;
 };
+
+node::node(){}
 
 class activities
 {

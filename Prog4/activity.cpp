@@ -23,9 +23,15 @@
 
 void activities::readIn()
 {
+  //  list li;
   // create a node to be inserted/added
+  //  node * current = new node(tempList);
+  list tempList;
+  li.newAct();
+  strcpy(tempList, li)
   node * current = new node;
-  current->data = li.newAct();
+  strcpy(current->data.activity, tempList.activity);
+  current->data = tempList; // temp;
   current->next = NULL;
   // is the list is empty?
   if(!head)
@@ -34,4 +40,5 @@ void activities::readIn()
     head = new node;
     head->next = current;
   }
+  cout << tempList.activity;
 }

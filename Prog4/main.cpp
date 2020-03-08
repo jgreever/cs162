@@ -23,6 +23,12 @@
 
 int main()
 {
-
+  activities acts;
+  nlist li;
+  acts.readIn();
+  acts.displayAll();
+//  acts.isMatch();  //Not able to get this working
+//  li.~nlist();
+//  acts.~activities();
   return 0;
 }

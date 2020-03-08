@@ -21,16 +21,37 @@
 
 #include "header.h"
 
-list::list(){}
-
-list list::newAct()
+nlist::nlist()
 {
-  list li;
-  // ask user to input data
-  cout << "Please enter the activity name: ";
-  cin.get(li.activity, 51, '\n');
-  cin.ignore(100, '\n');
-  cout << endl;
-  
-  return li;
+  /*  activity[0] = '\0';
+      location[0] = '\0';
+      timeOfYear[0] = '\0';
+      description[0] = '\0';
+      thoughts[0] = '\0';
+      supplies[0] = '\0';
+      dateRange[0] = '\0';
+      */
 }
+/*
+nlist::~nlist()
+{
+  if(activity != NULL)
+  {
+    delete [] activity;
+    delete [] location;
+    delete [] timeOfYear;
+    delete [] description;
+    delete [] thoughts;
+    delete [] supplies;
+    delete [] dateRange;
+    cout << "Deleted dynamically allocated array." << endl;
+  }
+  activity = NULL;
+  location = NULL;
+  timeOfYear = NULL;
+  description = NULL;
+  thoughts = NULL;
+  supplies = NULL;
+  dateRange = NULL;
+}
+*/

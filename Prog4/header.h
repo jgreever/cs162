@@ -26,47 +26,34 @@ using namespace std;
 
 //class node; // forward declaration so we can pass head
 
-class list
+class nlist
 {
   public:
-    list();
-    //    ~list();
-    list newAct();
+    nlist();
+//    ~nlist();
+    void newAct();
     void displayAct();
-    bool compareName();
+    bool compareName(char toMatch[]);
   private:
-    char activity[51];
-    char location[51];
-    char timeOfYear[26];
-    char description[131];
-    char thoughts[201];
-    char supplies[131];
-    char dateRange[26];
+    char * activity;
+    char * location;
+    char * timeOfYear;
+    char * description;
+    char * thoughts;
+    char * supplies;
+    char * dateRange;
 };
-
-class node
-{
-  public:
-    node();
-    list data;
-    node * next;
-};
-
-node::node(){}
 
 class activities
 {
   public:
     activities();
-    ~activities();
+//    ~activities();
     void readIn();
     void displayAll();
     void isMatch();
   private:
-    list li;
-    node * head;
-    node * current;
-    node * tail;
+    nlist * newList;
     int numActs;
     int arraySize;
 };

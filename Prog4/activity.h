@@ -23,20 +23,16 @@
 
 activities::activities()
 {
-  head = NULL;
-  current = NULL;
-  tail = NULL;
+  newList = new nlist[10];
   numActs = 0;
   arraySize = 0;
 }
-
-activities::~activities()
-{
-  node * current = head;
-  while(head != NULL)
-  {
-    head = head->next;
-    delete(current);
-    current = head;
-  }
-}
+/*
+   activities::~activities()
+   {
+   if(newList != NULL)
+   delete [] newList;
+   newList = NULL;
+   cout << "Deleted dynamically allocated array." << endl;
+   }
+   */

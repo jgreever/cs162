@@ -21,8 +21,17 @@
 
 #include "header.h"
 
-int main()
+void activities::readIn()
 {
-
-  return 0;
+  // create a node to be inserted/added
+  node * current = new node;
+  current->data = li.newAct();
+  current->next = NULL;
+  // is the list is empty?
+  if(!head)
+  {
+    node * current = head;
+    head = new node;
+    head->next = current;
+  }
 }

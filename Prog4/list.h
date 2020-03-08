@@ -11,7 +11,7 @@
  * Thoughts
  * Supplies
  * Date(s)
- * 
+ *
  * The user will be able to Add/Delete/View entries
  * using this program. If possible, they will be able
  * to load and save to a text file as well as store
@@ -21,38 +21,11 @@
 
 #include "header.h"
 
-activities::activities()
+list::list(){}
+
+list list::newAct()
 {
-  head = NULL;
-  current = NULL;
-  tail = NULL;
-  numActs = 0;
-  arraySize = 0;
-}
+  
 
-void activities::readIn()
-{
-  if(!head)
-  {
-    head = new node;
-    head->next = NULL;
-  }
-  node * current = head;
-  if(current)
-    while(current->next != NULL)
-      current = current->next;
-  current->next = new node;
-  current = current->next;
-  current->data = 0; //TODO replace 0 with the input data 
-  current->next = NULL;
-}
-
-void displayAll()
-{
-
-}
-
-void isMatch()
-{
-
+  return newList;
 }

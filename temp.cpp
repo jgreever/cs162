@@ -11,7 +11,7 @@
  * Thoughts
  * Supplies
  * Date(s)
- *
+ * 
  * The user will be able to Add/Delete/View entries
  * using this program. If possible, they will be able
  * to load and save to a text file as well as store
@@ -24,14 +24,12 @@
 #include <cstring>
 using namespace std;
 
-class node; // forward declaration so we can pass head
-
-class list
+class actlist
 {
   public:
-    list();
-    //    ~list();
-    list newAct();
+    actlist();
+//    ~actlist();
+    actlist newAct();
     void displayAct();
     bool compareName();
   private:
@@ -44,10 +42,9 @@ class list
     char dateRange[26];
 };
 
-class node
+struct node
 {
-  public:
-    list data;
+    char data;
     node * next;
 };
 
@@ -55,12 +52,12 @@ class activities
 {
   public:
     activities();
-    ~activities();
-    void readIn();
+//    ~activities();
+    void readIn(actlist newActList);
     void displayAll();
     void isMatch();
   private:
-    list li;
+    actlist actL;
     node * head;
     node * current;
     node * tail;

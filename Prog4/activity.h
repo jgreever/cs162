@@ -21,8 +21,22 @@
 
 #include "header.h"
 
-int main()
+activities::activities()
 {
+  head = NULL;
+  current = NULL;
+  tail = NULL;
+  numActs = 0;
+  arraySize = 0;
+}
 
-  return 0;
+activities::~activities()
+{
+  node * current = head;
+  while(head != NULL)
+  {
+    head = head->next;
+    delete(current);
+    current = head;
+  }
 }

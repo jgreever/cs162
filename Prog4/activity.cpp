@@ -41,7 +41,7 @@ void activities::readIn()
 void activities::displayAll()         //this function worked fine
 {                                     //but I made a change elsewhere
   for(int i = 0; i < numActs; ++i)    //and now it doesn't work.
-    newList[i].displayAct();
+    newList[i].displayAct(newList);
 }
 
 void activities::isMatch()

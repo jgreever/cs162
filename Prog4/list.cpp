@@ -69,13 +69,13 @@ void nlist::newAct()
 }
 
 // this function doesn't seem to do anything
-void nlist::displayAct()
+void nlist::displayAct(nlist * newList)
 {
-  if(activity[0] != '\0')
-    cout << activity << endl << location << endl
-         << timeOfYear << endl << description << endl
-         << thoughts << endl << supplies << endl
-         << dateRange << endl;
+  if(newList->activity[0] != '\0')
+    cout << newList->activity << endl << newList->location << endl
+         << newList->timeOfYear << endl << newList->description << endl
+         << newList->thoughts << endl << newList->supplies << endl
+         << newList->dateRange << endl;
 }
 
 bool nlist::compareName(char toMatch[])

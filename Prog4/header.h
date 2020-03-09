@@ -34,7 +34,7 @@ class nlist
     nlist();
 //    ~nlist();
     void newAct();
-    void displayAct();
+    void displayAct(nlist * newList);
     bool compareName(char toMatch[]);
   private:
     char * activity;

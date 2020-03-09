@@ -1,4 +1,6 @@
-/* Justin Greever
+/* list.cpp
+ *
+ * Justin Greever
  * CS162
  * Program 4 - Store activities in a LLL using
  * nodes and classes/structures. The objective
@@ -31,6 +33,10 @@ void nlist::newAct()
   char sup[131];
   char dran[26];
 
+  //creating dynamically allocated arrays after each
+  //data field has been inputed. I believe this is
+  //working as intended. I haven't had it crash
+  //or have a compile error about them, yet.
   cout << "Enter activity name:" << endl;
   cin.get(act, 51, '\n');
   cin.ignore(100, '\n');
@@ -76,5 +82,6 @@ bool nlist::compareName(char toMatch[])
 {
   if(strcmp(toMatch, activity) == 0)
     return true;
-  return false;
+  else
+    return false;
 }

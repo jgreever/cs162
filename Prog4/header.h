@@ -1,4 +1,6 @@
-/* Justin Greever
+/* header.h
+ *
+ * Justin Greever
  * CS162
  * Program 4 - Store activities in a LLL using
  * nodes and classes/structures. The objective

@@ -1,4 +1,6 @@
-/* Justin Greever
+/* activity.cpp
+ *
+ * Justin Greever
  * CS162
  * Program 4 - Store activities in a LLL using
  * nodes and classes/structures. The objective
@@ -36,17 +38,14 @@ void activities::readIn()
   numActs = numActs + i;
 }
 
-// this worked fine, then a change was made
-// and suddenly nothing when it is called
-void activities::displayAll()
-{
-  for(int i = 0; i < numActs; ++i)
+void activities::displayAll()         //this function worked fine
+{                                     //but I made a change elsewhere
+  for(int i = 0; i < numActs; ++i)    //and now it doesn't work.
     newList[i].displayAct();
 }
 
 void activities::isMatch()
 {
-  nlist li;
   char toMatch[51];
   cout << "Enter activity name to search for: ";
   cin.get(toMatch, 51, '\n');

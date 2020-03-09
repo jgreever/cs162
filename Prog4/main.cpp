@@ -1,4 +1,6 @@
-/* Justin Greever
+/* header.cpp
+ *
+ * Justin Greever
  * CS162
  * Program 4 - Store activities in a LLL using
  * nodes and classes/structures. The objective
@@ -27,8 +29,8 @@ int main()
   nlist li;
   acts.readIn();
   acts.displayAll();
-//  acts.isMatch();  //Not able to get this working
-//  li.~nlist();
-//  acts.~activities();
+  acts.isMatch();  //this *seems* to work, but prints "Match Found" twice
+  li.~nlist();
+  acts.~activities();
   return 0;
 }

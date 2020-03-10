@@ -25,3 +25,19 @@ struct node
   char participate;
   struct node * next;
 };
+
+class list
+{
+  private:
+    node * head;
+    node * tail;
+  public:
+    list()
+    {
+      head = NULL;
+      tail = NULL;
+    }
+};
+
+void addNode(char name, char desc, char part);
+

@@ -15,3 +15,7 @@
 
 #include "functions.h"
 
+void addNode(char name, char desc, char part)
+{
+
+}

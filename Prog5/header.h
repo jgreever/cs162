@@ -18,26 +18,29 @@
 #include <cstring>
 using namespace std;
 
+class item
+{
+  public:
+    char activity;
+    char description;
+    char participate;
+};
+
 struct node
 {
-  char favorite;
-  char description;
-  char participate;
-  struct node * next;
+    item data;
+    node * next;
 };
 
 class list
 {
+  public:
+    list();
+    void addNode();
   private:
     node * head;
     node * tail;
-  public:
-    list()
-    {
-      head = NULL;
-      tail = NULL;
-    }
 };
 
-void addNode(char name, char desc, char part);
+void addNode();
 

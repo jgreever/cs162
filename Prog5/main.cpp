@@ -17,6 +17,7 @@
 
 int main()
 {
-
+  list li;
+  li.addNode();
   return 0;
 }

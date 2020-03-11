@@ -17,7 +17,9 @@
 
 int main()
 {
+  node * head = NULL;
+  node * tail = NULL;
   list li;
-  li.addNode();
+  li.addNode(head, tail);
   return 0;
 }

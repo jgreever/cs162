@@ -15,39 +15,70 @@
 
 #include "header.h"
 
-list::list()
-{
-  head = NULL;
-  tail = NULL;
-}
+list::list(){}
 
-void list::addNode()
+void list::addNode(node * head, node * tail)
 {
-  item * nlist = new item();
-  cout << "Please enter the activity/item name:" << endl;
-  cin.get(nlist->activity);
+  char tempAct[51];
+  char tempDesc[131];
+  char tempPart[51];
+  node * temp = new node;
+  cout << "Please enter the activity or item:" << endl;
+  cin.get(tempAct, 51, '\n');
   cin.ignore(100, '\n');
-  cout << "Please enter the description:" << endl;
-  cin.get(nlist->description);
+//  temp->activity = new char[strlen(tempAct) + 1];
+  strcpy(temp->activity, tempAct);
+
+  cout << "Please enter the description for the activity or item:" << endl;
+  cin.get(tempDesc, 131, '\n');
   cin.ignore(100, '\n');
-  cout << "Enter often do you participate/use it:" << endl;
-  cin.get(nlist->activity);
+//  temp->description = new char[strlen(tempDesc) + 1];
+  strcpy(temp->description, tempDesc);
+  
+  cout << "Please enter how often you participate in the activity or use the item:" << endl;
+  cin.get(tempPart, 51, '\n');
   cin.ignore(100, '\n');
-  node * current = head;
-  node * temp = new node();
+//  temp->participate = new char[strlen(tempPart) + 1];
+  strcpy(temp->participate, tempPart);
+  
+  temp->next = NULL;
+//  head = temp;
+
+  cout << "Activity: " << temp->activity << endl;
+  cout << "Description: " << temp->description << endl;
+  cout << "Participate: " << temp->participate << endl;
+
+//  node * current = head;
+
   if(NULL == head)
   {
-    head = new node();
-    head->data = new item();
+    head = temp;
+    tail = temp;
+  }
+  else
+  {
+    tail->next = temp;
+    tail = tail->next;
+  }
+}
+
+/*
+    head = new node;
+    strcpy(head->activity, temp->activity);
+    strcpy(head->description, temp->description);
+    strcpy(head->participate, temp->participate);
     head->next = NULL;
+ 
   }
   else
   {
     while(current != NULL)
-      current=current->next;
+      current = current->next;
     current->next = temp;
     temp->next = NULL;
-    temp->data = new item();
+    strcpy(current->activity, temp->activity);
+    strcpy(current->description, temp->description);
+    strcpy(current->participate, temp->participate);
   }
-  cout << head->data;
 }
+ */

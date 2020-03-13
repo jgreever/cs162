@@ -32,11 +32,11 @@ class list
   public:
     list();
     //~list();
-    void addNode(node * head, node * tail);
+    int addNode(node * & head);
+    void displayAll(node * head);
   private:
     node * head;
-    node * tail;
 };
 
-void addNode();
-
+int addNode();
+void displayAll();

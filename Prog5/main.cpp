@@ -18,8 +18,30 @@
 int main()
 {
   node * head = NULL;
-  node * tail = NULL;
   list li;
-  li.addNode(head, tail);
+  int nodeCount = 0;
+  char response = 'Y';
+  
+  while(response == 'Y')
+  {
+    int nodeCounter = li.addNode(head);
+    cout << "Enter new entry? (Y for yes, N for no)";
+    cin >> response;
+    cin.ignore(100, '\n');
+    response = toupper(response);
+    nodeCount = nodeCounter + nodeCount;
+  }
+  cout << "Node Count: " << nodeCount << endl;
+  
+  response = 'Y';
+  cout << "Would you like to display all entries: ";
+  cin >> response;
+  cin.ignore(100, '\n');
+  response = toupper(response);
+  while(response == 'Y')
+  {
+    li.displayAll(head);
+    response = 'N';
+  }
   return 0;
 }

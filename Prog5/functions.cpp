@@ -17,51 +17,76 @@
 
 list::list(){}
 
-void list::addNode(node * head, node * tail)
+int list::addNode(node * & head) // let's add a node and fill it with crap!
 {
   char tempAct[51];
   char tempDesc[131];
   char tempPart[51];
+  int counter = 0;
   node * temp = new node;
   cout << "Please enter the activity or item:" << endl;
   cin.get(tempAct, 51, '\n');
   cin.ignore(100, '\n');
-//  temp->activity = new char[strlen(tempAct) + 1];
   strcpy(temp->activity, tempAct);
 
   cout << "Please enter the description for the activity or item:" << endl;
   cin.get(tempDesc, 131, '\n');
   cin.ignore(100, '\n');
-//  temp->description = new char[strlen(tempDesc) + 1];
   strcpy(temp->description, tempDesc);
   
   cout << "Please enter how often you participate in the activity or use the item:" << endl;
   cin.get(tempPart, 51, '\n');
   cin.ignore(100, '\n');
-//  temp->participate = new char[strlen(tempPart) + 1];
   strcpy(temp->participate, tempPart);
   
   temp->next = NULL;
-//  head = temp;
 
+// this was used to ensure things were getting put in the node
+// debugging is fun!
+//  head = temp;
+/*
   cout << "Activity: " << temp->activity << endl;
   cout << "Description: " << temp->description << endl;
   cout << "Participate: " << temp->participate << endl;
-
+ */
 //  node * current = head;
 
-  if(NULL == head)
+  if(!head)
   {
-    head = temp;
-    tail = temp;
+    head = new node;
+//    head->activity = temp->activity; // this won't work, strcpy() saves the day
+    strcpy(head->activity, temp->activity);
+//    head->description = temp->description;
+    strcpy(head->description, temp->description);
+//    head->participate = temp->participate;
+    strcpy(head->participate, temp->participate);
+    head->next = NULL;
+    counter = 1;
   }
   else
   {
-    tail->next = temp;
-    tail = tail->next;
+    node * current = head;
+    while(current->next)
+      current = current->next;
+    current->next = new node;
+    current = current->next;
+//    current->activity = temp->activity; // can't do it this way, let's use strcpy()
+    strcpy(current->activity, temp->activity);
+//    current->description = temp->description; 
+    strcpy(current->description, temp->description);
+//    current->participate = temp->participate;
+    strcpy(current->participate, temp->participate);
+    current->next = NULL;
+    counter = counter + 1;
   }
+  return counter;
+
 }
 
+// haha, this code must have been drunk when it
+// wrote itself or something. I honestly do not
+// remember what I was trying to do, it was so 
+// late at night :(
 /*
     head = new node;
     strcpy(head->activity, temp->activity);
@@ -82,3 +107,16 @@ void list::addNode(node * head, node * tail)
   }
 }
  */
+
+void list::displayAll(node * head) // let's display all dem activities!
+{
+  if(head)
+  {
+    cout << "Activity: " << head->activity << endl;
+    cout << "Description: " << head->description << endl;
+    cout << "Participate: " << head->participate << endl;
+    cout << "********************************************" << endl; // give a visual seperation of nodes
+    cout << endl; // gotta love that new line smell xD
+    displayAll(head->next);
+  }
+}

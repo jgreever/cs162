@@ -21,22 +21,23 @@ using namespace std;
 class node
 {
   public:
-  char activity[51];
-  char description[131];
-  char participate[51];
-  node * next;
+    char activity[51];
+    char description[131];
+    char participate[51];
+    node * next;
 };
 
 class list
 {
   public:
     list();
-    //~list();
     int addNode(node * & head);
     void displayAll(node * head);
+    void deleteNode(node * & head);
   private:
     node * head;
 };
 
 int addNode();
 void displayAll();
+void deleteNode();

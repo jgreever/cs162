@@ -1,9 +1,9 @@
-/* main.cpp 
+/* main.cpp
  *
  * Justin Greever
  * CS162
  * Program 5
- * 
+ *
  * This program will use linear linked lists to
  * store data about 3 items: Name of my favorite thing,
  * description of the item, and how often I participate
@@ -21,7 +21,7 @@ int main()
   list li;
   int nodeCount = 0;
   char response = 'Y';
-  
+
   while(response == 'Y')
   {
     int nodeCounter = li.addNode(head);
@@ -32,16 +32,20 @@ int main()
     nodeCount = nodeCounter + nodeCount;
   }
   cout << "Node Count: " << nodeCount << endl;
-  
+
   response = 'Y';
   cout << "Would you like to display all entries: ";
   cin >> response;
   cin.ignore(100, '\n');
   response = toupper(response);
-  while(response == 'Y')
+  if(response == 'Y')
   {
     li.displayAll(head);
-    response = 'N';
   }
+  
+  /* the li.deleteNode code below isn't working yet 
+   * and i'm still trying to figure it out
+   */
+  li.deleteNode(head);
   return 0;
 }

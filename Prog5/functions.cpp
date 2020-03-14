@@ -17,7 +17,7 @@
 
 list::list(){}
 
-int list::addNode(node * & head) // let's add a node and fill it with crap!
+int list::addNode(node * & head) // let's add a node and fill it with stuff!
 {
   char tempAct[51];
   char tempDesc[131];
@@ -28,37 +28,23 @@ int list::addNode(node * & head) // let's add a node and fill it with crap!
   cin.get(tempAct, 51, '\n');
   cin.ignore(100, '\n');
   strcpy(temp->activity, tempAct);
-
+  
   cout << "Please enter the description for the activity or item:" << endl;
   cin.get(tempDesc, 131, '\n');
   cin.ignore(100, '\n');
   strcpy(temp->description, tempDesc);
-  
+
   cout << "Please enter how often you participate in the activity or use the item:" << endl;
   cin.get(tempPart, 51, '\n');
   cin.ignore(100, '\n');
   strcpy(temp->participate, tempPart);
-  
   temp->next = NULL;
-
-// this was used to ensure things were getting put in the node
-// debugging is fun!
-//  head = temp;
-/*
-  cout << "Activity: " << temp->activity << endl;
-  cout << "Description: " << temp->description << endl;
-  cout << "Participate: " << temp->participate << endl;
- */
-//  node * current = head;
 
   if(!head)
   {
     head = new node;
-//    head->activity = temp->activity; // this won't work, strcpy() saves the day
     strcpy(head->activity, temp->activity);
-//    head->description = temp->description;
     strcpy(head->description, temp->description);
-//    head->participate = temp->participate;
     strcpy(head->participate, temp->participate);
     head->next = NULL;
     counter = 1;
@@ -70,11 +56,8 @@ int list::addNode(node * & head) // let's add a node and fill it with crap!
       current = current->next;
     current->next = new node;
     current = current->next;
-//    current->activity = temp->activity; // can't do it this way, let's use strcpy()
     strcpy(current->activity, temp->activity);
-//    current->description = temp->description; 
     strcpy(current->description, temp->description);
-//    current->participate = temp->participate;
     strcpy(current->participate, temp->participate);
     current->next = NULL;
     counter = counter + 1;
@@ -82,31 +65,6 @@ int list::addNode(node * & head) // let's add a node and fill it with crap!
   return counter;
 
 }
-
-// haha, this code must have been drunk when it
-// wrote itself or something. I honestly do not
-// remember what I was trying to do, it was so 
-// late at night :(
-/*
-    head = new node;
-    strcpy(head->activity, temp->activity);
-    strcpy(head->description, temp->description);
-    strcpy(head->participate, temp->participate);
-    head->next = NULL;
- 
-  }
-  else
-  {
-    while(current != NULL)
-      current = current->next;
-    current->next = temp;
-    temp->next = NULL;
-    strcpy(current->activity, temp->activity);
-    strcpy(current->description, temp->description);
-    strcpy(current->participate, temp->participate);
-  }
-}
- */
 
 void list::displayAll(node * head) // let's display all dem activities!
 {
@@ -118,5 +76,34 @@ void list::displayAll(node * head) // let's display all dem activities!
     cout << "********************************************" << endl; // give a visual seperation of nodes
     cout << endl; // gotta love that new line smell xD
     displayAll(head->next);
+  }
+}
+
+void list::deleteNode(node * & head)
+{
+  node * temp = new node;
+  node * current = new node;
+  node * previous = new node;
+  char * match;
+  cout << "Enter the activity name to delete: ";
+  cin >> *match;
+  cin.ignore(100, '\n');
+  if(!head)
+    return;
+  if(strcmp(head->activity, match) == 0)
+  {
+    temp = head->next;
+    delete head;
+    head = temp;
+  }
+  while(current && strcmp(current->activity, match) != 0)
+  {
+    previous = current;
+    current = current->next;
+  }
+  if(current != NULL)
+  {
+    previous->next = current->next;
+    delete current;
   }
 }

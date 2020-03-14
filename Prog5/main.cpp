@@ -3,6 +3,7 @@
  * Justin Greever
  * CS162
  * Program 5
+ * 3/7/2020
  *
  * This program will use linear linked lists to
  * store data about 3 items: Name of my favorite thing,
@@ -13,7 +14,7 @@
  * release all memory (destroy the lll).
  */
 
-#include "header.h"
+#include "list.h"
 
 int main()
 {
@@ -47,5 +48,6 @@ int main()
    * and i'm still trying to figure it out
    */
   li.deleteNode(head);
+  li.~list();  // clean up anything made by new
   return 0;
 }
